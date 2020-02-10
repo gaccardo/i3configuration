@@ -110,7 +110,7 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10"
+set $ws10 "10: Notes"
 set $ws11 "11: Browser"
 set $ws12 "12"
 set $ws13 "13"
@@ -315,6 +315,7 @@ mode "launcher" {
 	bindsym q exec qutebrowser
 	bindsym k exec firefox https://keep.google.com/
         bindsym p exec firefox --private-window
+        bindsym l exec fgfs --launcher
 	bindsym Escape mode "default"
 }
 
