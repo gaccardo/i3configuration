@@ -334,11 +334,10 @@ bar {
        colors {
              background #1C1C1C
 
-             #focused_workspace  #AAFF1D #000000 #AAFF1D
-             focused_workspace  #AAFF1D #1C1C1C #AAFF1D
-             #active_workspace   #000000 #000000 #AAFF1D
-             active_workspace   #000000 #1C1C1C #AAFF1D
-             #inactive_workspace #000000 #000000 #888888
+             #focused_workspace  #AAFF1D #1C1C1C #AAFF1D
+             focused_workspace  #1C1C1C #1C1C1C #AAFF1D
+             #active_workspace   #000000 #1C1C1C #AAFF1D
+             active_workspace   #1C1C1C #1C1C1C #AAFF1D
              inactive_workspace #1C1C1C #1C1C1C #888888
              urgent_workspace   #2f343a #900000 #ffffff
              binding_mode       #2f343a #900000 #ffffff
