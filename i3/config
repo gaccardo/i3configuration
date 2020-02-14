@@ -330,8 +330,8 @@ bar {
        colors {
              background #1C1C1C
 
-             focused_workspace  #1C1C1C #1C1C1C #AAFF1D
-             active_workspace   #1C1C1C #1C1C1C #AAFF1D
+             focused_workspace  #A4A4A4 #1C1C1C #AAFF1D
+             active_workspace   #424242 #1C1C1C #AAFF1D
              inactive_workspace #1C1C1C #1C1C1C #888888
              urgent_workspace   #2f343a #900000 #ffffff
              binding_mode       #2f343a #900000 #ffffff
@@ -347,8 +347,8 @@ bar {
        colors {
              background #1C1C1C
 
-             focused_workspace  #1C1C1C #1C1C1C #AAFF1D
-             active_workspace   #1C1C1C #1C1C1C #AAFF1D
+             focused_workspace  #A4A4A4 #1C1C1C #AAFF1D
+             active_workspace   #424242 #1C1C1C #AAFF1D
              inactive_workspace #1C1C1C #1C1C1C #888888
              urgent_workspace   #2f343a #900000 #ffffff
              binding_mode       #2f343a #900000 #ffffff
@@ -365,8 +365,8 @@ bar {
        colors {
              background #1C1C1C
 
-             focused_workspace  #1C1C1C #1C1C1C #AAFF1D
-             active_workspace   #1C1C1C #1C1C1C #AAFF1D
+             focused_workspace  #A4A4A4 #1C1C1C #AAFF1D
+             active_workspace   #424242 #1C1C1C #AAFF1D
              inactive_workspace #1C1C1C #1C1C1C #888888
              urgent_workspace   #2f343a #900000 #ffffff
              binding_mode       #2f343a #900000 #ffffff
