@@ -18,7 +18,7 @@ bindsym $mod+Shift+q kill
 
 # start (a program launcher)
 bindsym $mod+space exec rofi -show run -config $HOME/.config/i3/rofi/rofi.conf -font "Envy Code R 12"
-bindsym $mod+Shift+space exec rofi -ssh-command "kitty -e /home/guido/.ssh/client {host}" -show ssh -config $HOME/.config/i3/rofi/rofi.conf 
+bindsym $mod+Shift+space exec rofi -ssh-command "kitty -e /home/guido/.ssh/client {host}" -show ssh -parse-known-hosts -config $HOME/.config/i3/rofi/rofi.conf -parse-hosts
 
 # change focus
 bindsym $mod+j focus left
