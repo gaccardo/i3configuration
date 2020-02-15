@@ -1,0 +1,30 @@
+host *
+	controlmaster auto
+	controlpath /tmp/ssh-%r@%h:%p
+
+## GITHUB
+
+Host github.com
+	IdentityFile ~/.ssh/github
+
+## DEVOPS
+
+Host monitoring01
+	HostName 10.10.156.200
+	User guido
+
+Host vpn01
+	HostName 10.10.13.4
+	User guido
+
+## STAGE
+
+Host stgcm01
+	HostName 10.10.200.10
+	User guido
+
+## PRODUCTION
+
+Host prodev01
+	HostName 10.10.70.150
+	User guido
