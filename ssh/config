@@ -17,6 +17,61 @@ Host vpn01
 	HostName 10.10.13.4
 	User guido
 
+## DEVELOPMENT
+
+Host devflower01
+	HostName 10.10.156.100
+	User guido
+
+Host devccmsf01
+	HostName 10.10.155.17
+	User guido
+
+Host devcm01
+	HostName 10.10.156.13
+	User guido
+
+Host devwf01
+	HostName	10.10.155.12
+	User guido
+
+Host devdwh01
+	HostName 10.10.156.205
+	User guido
+
+Host devftp01
+	HostName 10.10.155.54
+	User guido
+
+Host devcount01
+	HostName 10.10.1.20
+	User guido
+
+Host devccm01
+	HostName 10.10.155.10
+	User guido
+
+Host devdm01
+	HostName 10.10.155.16
+	User guido
+
+Host devjenkings01
+	HostName 10.10.156.25
+	User guido
+
+Host devorder01
+	HostName 10.10.155.14
+	User guido
+
+Host devird01
+	HostName 10.10.155.15
+	User guido
+
+Host devgrafana01
+	HostName 10.1.193.73
+	User guido
+
+
 ## STAGE
 
 Host stgcm01
