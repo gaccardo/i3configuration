@@ -241,6 +241,7 @@ for_window [class="Lens"] move to workspace $ws13
 for_window [class="FlightGear"] move to workspace $ws9
 for_window [class="Spotify"] border none
 for_window [class="^.*"] border pixel 1
+for_window [class="joplin"] move to workspace $ws10
 
 # COLORS
 client.focused          #AAFF1D #1C1C1C #AAFF1D #AAFF1D #000000
@@ -287,12 +288,12 @@ mode "screenshot" {
 bindsym $mod+Shift+s mode "screenshot" 
 
 mode "launcher" {
-	bindsym w exec brave-browser https://web.whatsapp.com
+	bindsym b exec brave-browser
 	bindsym f exec firefox
 	bindsym q exec qutebrowser
-	bindsym k exec firefox https://keep.google.com/
-        bindsym p exec firefox --private-window
-        bindsym l exec fgfs --launcher
+   bindsym p exec firefox --private-window
+   bindsym l exec fgfs --launcher
+   bindsym j exec /home/guido/.bin/joplin
 	bindsym Escape mode "default"
 }
 bindsym $mod+o mode "launcher"
