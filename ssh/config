@@ -71,6 +71,9 @@ Host devgrafana01
 	HostName 10.1.193.73
 	User guido
 
+Host devsyslog01
+	HostName 10.10.1.11
+	User guido
 
 ## STAGE
 
@@ -78,8 +81,253 @@ Host stgcm01
 	HostName 10.10.200.10
 	User guido
 
+Host stgwf01
+	HostName 10.10.120.10
+	User guido
+
+Host stgdm01
+	HostName 10.10.160.10
+	User guido
+
+Host stgb2b01
+	HostName 10.10.1.107
+	User guido
+
+Host stgcwtool01
+	HostName 10.10.1.12
+	User guido
+
+Host stgccmsf01
+	HostName 10.10.1.31
+	User guido
+
+Host stgdm01
+	HostName 10.10.160.10
+	User guido
+
+Host stgb2b01
+	HostName 10.10.1.107
+	User guido
+
+Host stgcwtool01
+	HostName 10.10.1.12
+	User guido
+
+Host stgccmsf01
+	HostName 10.10.1.31
+	User guido
+
+Host stgdwh01
+	HostName 10.10.200.100
+	User guido
+
+Host stgbridgeapi01
+	HostName	10.10.105.20
+	User guido
+
+Host stgird01
+	HostName 10.10.106.10
+	User guido
+
+Host stgtstg01
+	HostName 10.10.1.176
+	User guido
+
+Host stglogging01
+	HostName 10.10.111.10
+	User guido
+
+Host stgflower01
+	HostName 10.10.103.10
+	User guido
+
+Host stgccm01
+	HostName 10.10.1.146
+	User guido
+
+Host stgcount01
+	HostName 10.10.1.137
+	User guido
+
+Host stgevent01
+	HostName 10.10.60.150
+	User guido
+
+Host stglsmx01
+	HostName 10.10.1.27
+	User guido
+
+Host stgorder01
+	HostName 10.10.105.10
+	User guido
+
 ## PRODUCTION
 
 Host prodev01
 	HostName 10.10.70.150
 	User guido
+
+Host prodflower01
+	HostName 10.10.20.20
+	User guido
+
+Host prodcm01
+	HostName 10.10.20.10
+	User guido
+
+
+Host prodwf01
+	HostName 10.10.12.10
+	User guido
+
+Host prodimports01
+	HostName 10.10.1.62
+	User guido
+
+Host prodbonus01
+	HostName 10.10.1.208
+	User guido
+
+Host proddatalistsinboud41
+	HostName 10.10.1.254
+	User guido
+
+Host prodlocationformatting2
+	HostName 10.10.1.250
+	User guido
+
+Host proddm01
+	HostName 10.10.90.10
+	User guido
+
+Host prodcwtool01
+	HostName 10.10.1.142
+	User guido
+
+Host prodird01
+	HostName	10.10.55.10
+	User guido
+
+Host prodinternal01
+	HostName 10.10.10.26
+	User guido
+
+Host proddatalists01
+	HostName 10.10.1.236
+	User guido
+
+Host prodb2c01
+	HostName 10.10.1.79
+	User guido
+
+Host prodepostal01
+	HostName 10.10.100.35
+	User guido
+
+Host prodcorporate01
+	HostName 10.10.1.99
+	User guido
+
+Host prodlocationformatting4
+	HostName 10.10.1.26
+	User guido
+
+Host proddatalistsinbound32
+	HostName 10.10.1.131
+	User guido
+
+Host proddatalistsoutbound2
+	HostName 10.10.1.252
+	User guido
+
+Host prodowmnmagement01
+	HostName 10.10.1.163
+	User guido
+
+Host prodev01
+	HostName 10.10.70.150
+	User guido
+
+Host prodordercapture01
+	HostName 10.10.1.187
+	User guido
+
+Host prodb2b01
+	HostName 10.10.1.190
+	User guido
+
+Host prodlocationformattingcreative01
+	HostName 10.10.1.76
+	User guido
+
+Host proddatalistsoutband4
+	HostName 10.10.1.247
+	User guido
+
+Host proddatautilsbq01
+	HostName 10.10.20.59
+	User guido
+
+Host prodorder01
+	HostName 10.10.100.20
+	User guido
+
+Host proddwh01
+	HostName 10.10.20.100
+	User guido
+
+Host prodcountsystem01
+	HostName 10.10.1.57
+	User guido
+
+Host prodccmsf01
+	HostName 10.10.1.91
+	User guido
+
+Host prodelproxy01
+	HostName 10.10.12.100
+	User guido
+
+Host prodoldcorporate01
+	HostName 10.10.1.25
+	User guido
+
+Host prodelproxy02
+	HostName 10.10.12.101
+	User guido
+
+Host prodccm01
+	HostName 10.10.12.146
+	User guido
+
+Host prodvpn02
+	HostName 10.10.1.24
+	User guido
+
+Host prodlocationformatting03
+	HostName 10.10.1.39
+	User guido
+
+Host proddatalistsoutbound01
+	HostName 10.10.1.203
+	User guido
+
+Host proddatalistsinboundverifier01
+	HostName 10.10.1.63
+	User guido
+
+Host proddynamiccountallocation01
+	HostName 10.10.1.71
+	User guido
+
+Host prodportal01
+	HostName 10.10.10.25
+	User guido
+
+# Starfleet
+
+Host wall
+	HostName 10.5.0.200
+	User guido
+
+
