@@ -292,8 +292,10 @@ mode "launcher" {
 	bindsym f exec firefox
 	bindsym q exec qutebrowser
    bindsym p exec firefox --private-window
-   bindsym l exec fgfs --launcher
+   bindsym g exec fgfs --launcher
    bindsym j exec /home/guido/.bin/joplin
+   bindsym l exec /home/guido/.bin/lens
+   bindsym s exec spotify
 	bindsym Escape mode "default"
 }
 bindsym $mod+o mode "launcher"

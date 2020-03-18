@@ -17,6 +17,14 @@ Host vpn01
 	HostName 10.10.13.4
 	User guido
 
+Host vpnmfa01
+	HostName 10.10.13.201
+	User guido
+
+Host backups01
+	HostName 10.10.156.105
+	User guido
+
 ## DEVELOPMENT
 
 Host devflower01
@@ -202,6 +210,10 @@ Host proddm01
 
 Host prodcwtool01
 	HostName 10.10.1.142
+	User guido
+
+Host prodevents01
+	HostName 10.10.70.150
 	User guido
 
 Host prodird01
