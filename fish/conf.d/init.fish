@@ -11,7 +11,8 @@ set -g theme_display_hostname yes
 set -g theme_newline_cursor yes
 
 # editor
-set -U EDITOR vim
+set -gx EDITOR vim
+set -Ux EDITOR vim
 set -U GIT_EDITOR vim
 set -U VISUAL vim
 set -U TERM xterm
@@ -26,3 +27,8 @@ function fish_user_key_bindings
 end
 
 set PATH $PATH $HOME/.bin/
+
+# Enable CTRL + t
+fzf_key_bindings
+
+set fish_color_search_match --background='484848'
