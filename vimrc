@@ -9,37 +9,32 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-
 Plugin 'preservim/nerdtree'
+Plugin 'preservim/nerdcommenter'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'python.vim'
-Plugin 'junegunn/fzf.vim'
-Plugin 'tagbar'
+Plugin 'majutsushi/tagbar'
 Plugin 'fugitive.vim'
 Plugin 'nvie/vim-flake8'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+" Plugin 'davidhalter/jedi-vim'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'ap/vim-css-color'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'mbbill/undotree'
+Plugin 'mattn/webapi-vim'
+Plugin 'dyng/ctrlsf.vim'
+Plugin 'jeetsukumaran/vim-buffergator'
+Plugin 'junegunn/fzf.vim'
+Plugin 'etdev/vim-hexcolor'
+Plugin 'morhetz/gruvbox'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-" Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
+" Plugin 'mattn/vim-gist'
 
-" All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -54,6 +49,16 @@ filetype plugin indent on    " required
 "
 " StatusLine
 
+function! ShowLongLines()
+  let w:m1=matchadd('Search', '\%<81v.\%>77v', -1)
+  let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endfunction
+
+function! ClearLongLines()
+  call matchdelete(w:m1)
+  call matchdelete(w:m2)
+endfunction
+
 function! GitBranch()
   return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
 endfunction
@@ -64,14 +69,15 @@ function! StatuslineGit()
 endfunction
 
 set laststatus=2
-
 syntax on
 
 " Key Mappings
 nmap <C-n> :NERDTreeToggle<CR>
 nmap <F8> :TagbarToggle<CR>
-
-""" EINS
+nmap <F5> :GitGutterToggle<CR>
+nmap <F6> :UndotreeToggle<CR>
+nmap <F7> :call ShowLongLines()<CR>
+nmap <leader><F7> :call ClearLongLines()<CR>
 
 " ## NAME: ~/.vimrc
 " ## delete unwanted spaces for all the file
@@ -84,8 +90,10 @@ set shortmess+=I
 set title
 set ls=2
 syntax on
+
 set ruler
-" ## set relativenumber
+set number
+set relativenumber
 
 " ## show path= :set path?
 " ## search down into subfolders
@@ -109,7 +117,7 @@ set title                " change the terminal's title
 set visualbell           " don't beep
 set noerrorbells         " don't beep
 
-set showmatch		" Show matching brackets.
+set showmatch           " Show matching brackets.
 " set ignorecase  " Do case insensitive matching
 " set showcmd     " Show (partial) command in status line.
 set hlsearch      " print coincidences
@@ -180,4 +188,24 @@ hi TabLine ctermfg=DarkRed ctermbg=Black
 hi TabLineSel ctermfg=DarkRed ctermbg=Black
 
 " ## Themes
-let g:airline_theme="term"
+" let g:airline_theme="term"
+
+" folding
+augroup remember_folds
+  autocmd!
+  autocmd BufWinLeave * mkview
+  autocmd BufWinEnter * silent! loadview
+augroup END
+
+" indent guides
+set ts=4 sw=4 et
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+hi IndentGuidesOdd  ctermbg=black 
+hi IndentGuidesEven ctermbg=darkgrey
+
+set cursorline
+hi CursorLine ctermbg=236
+nnoremap <Leader>c :set cursorline!<CR>
+
+colorscheme gruvbox
