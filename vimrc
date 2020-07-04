@@ -29,6 +29,10 @@ Plugin 'jeetsukumaran/vim-buffergator'
 Plugin 'junegunn/fzf.vim'
 Plugin 'etdev/vim-hexcolor'
 Plugin 'morhetz/gruvbox'
+Plugin 'jceb/vim-orgmode'
+Plugin 'tpope/vim-speeddating'
+Plugin 'mattn/calendar-vim'
+Plugin 'inkarkat/vim-SyntaxRange'
 
 " Plugin 'mattn/vim-gist'
 
@@ -209,3 +213,12 @@ hi CursorLine ctermbg=236
 nnoremap <Leader>c :set cursorline!<CR>
 
 colorscheme gruvbox
+
+" orgmode todo states
+let g:org_todo_keywords=['TODO', 'IN-PROGRESS', 'DONE']
+let g:org_todo_keyword_faces=[
+\  ['TODO', 'cyan'], 
+\  ['IN-PROGRESS', [':background yellow', ':foreground black']],
+\  ['DONE', 'red'],
+\  ]
+let g:org_agenda_files=['/home/guido/ownCloud/.todo.org']
