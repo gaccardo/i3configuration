@@ -12,14 +12,14 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec TERMINAL="kitty" i3-sensible-terminal
-bindsym $mod+Return exec TERMINAL="alacritty" i3-sensible-terminal
+bindsym $mod+Return exec TERMINAL="alacritty" i3-sensible-terminal --config-file ~/.alacritty/alacritty.yml
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start (a program launcher)
 bindsym $mod+space exec rofi -show run -config $HOME/.config/i3/rofi/rofi.conf -font "Envy Code R 12"
-bindsym $mod+Shift+space exec rofi -ssh-command "kitty -e /home/guido/.ssh/client {host}" -show ssh -parse-known-hosts -config $HOME/.config/i3/rofi/rofi.conf -parse-hosts
+bindsym $mod+Shift+space exec rofi -ssh-command "alacritty -e /home/guido/.ssh/client {host}" -show ssh -parse-known-hosts -config $HOME/.config/i3/rofi/rofi.conf -parse-hosts
 
 # change focus
 bindsym $mod+j focus left
@@ -153,10 +153,19 @@ bindsym $mod+Control+8 workspace $ws28
 bindsym $mod+Control+9 workspace $ws29
 bindsym $mod+Control+0 workspace $ws30
 
+# switch without ws number
+bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+Control+Left workspace prev
+bindsym $mod+Control+Right workspace next
+
 # set screens
-set $monit_zero DP-1
+#set $monit_zero DP-1
+#set $monit_one DVI-D-0
+#set $monit_two HDMI-0
+
+set $monit_two DP-1
 set $monit_one DVI-D-0
-set $monit_two HDMI-0
+set $monit_zero HDMI-0
 
 # assign workspaces to screens
 
@@ -242,7 +251,6 @@ for_window [class="Lens"] move to workspace $ws13
 for_window [class="FlightGear"] move to workspace $ws9
 for_window [class="Spotify"] border none
 for_window [class="^.*"] border pixel 1
-for_window [class="joplin"] move to workspace $ws10
 
 # COLORS
 client.focused          #AAFF1D #1C1C1C #AAFF1D #AAFF1D #000000
@@ -290,7 +298,7 @@ bindsym $mod+Shift+s mode "screenshot"
 
 mode "launcher" {
 	bindsym b exec brave-browser
-	bindsym f exec firefox
+	bindsym f exec firefox -P
 	bindsym q exec qutebrowser
    bindsym p exec firefox --private-window
    bindsym g exec fgfs --launcher
@@ -353,8 +361,10 @@ bar {
 # statup apps
 
 exec nitrogen --restore
-exec --no-startup-id nm-applet
+#exec --no-startup-id nm-applet
+exec --no-startup-id /home/guido/.bin/nm-applet-reset.sh
 exec /usr/bin/pasystray
+exec --no-startup-id /usr/bin/owncloud
 
 # MEDIA KEYS
 bindsym $mod+F11 exec /home/guido/.config/i3/scripts/vol_up.sh
