@@ -15,8 +15,9 @@ class Py3status:
                 'jsonpath={..namespace}'
             ]
         )
-
+        out = str(out)
+        out = out.strip("'b")
         return {
-            'full_text': str(out),
+            'full_text': out,
             'cached_until': self.py3.time_in(5)
         }

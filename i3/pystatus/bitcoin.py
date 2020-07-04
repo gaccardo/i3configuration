@@ -10,7 +10,7 @@ class Py3status:
             'full_text': "${}, ${:.2f}, ${:.2f}".format(
                 data['USD']['last'],
                 data['USD']['last'] * 0.27485289,
-                data['USD']['last'] * 0.27485289 * 100
+                data['USD']['last'] * 0.27485289 * 125
             ),
             'cached_until': self.py3.time_in(300)
         }
