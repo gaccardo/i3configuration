@@ -19,10 +19,7 @@ c.url.searchengines = {
         'aur': 'https://aur.archlinux.org/packages.php?K={}',
         'ar': 'https://wiki.archlinux.org/?search={}',
         'DEFAULT': 'https://duckduckgo.com/?q={}',
-        'ec': 'https://www.ecosia.org/search?q={}',
         'gi': 'https://github.com/search?q={}',
-        'ji': 'http://jisho.org/search/{}',
-        'ra': 'https://rateyourmusic.com/search?searchtype=a&searchterm={}',
         'wikt': 'https://en.wiktionary.org/wiki/Special:Search?search={}',
         'wi': 'https://en.wikipedia.org/wiki/Special:Search?search={}',
         'yo': 'https://youtube.com/results?search_query={}'
