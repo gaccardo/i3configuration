@@ -317,10 +317,10 @@ bar {
        status_command py3status --config ~/.config/i3/i3status/i3status_left.conf --include /home/guido/.config/i3/pystatus
        position top
        colors {
-             background #1C1C1C
-             focused_workspace  #A4A4A4 #1C1C1C #AAFF1D
-             active_workspace   #424242 #1C1C1C #AAFF1D
-             inactive_workspace #1C1C1C #1C1C1C #888888
+             background #282828
+             focused_workspace  #A4A4A4 #282828 #AAFF1D
+             active_workspace   #424242 #282828 #AAFF1D
+             inactive_workspace #282828 #282828 #888888
              urgent_workspace   #2f343a #900000 #ffffff
              binding_mode       #2f343a #900000 #ffffff
        }
@@ -332,10 +332,10 @@ bar {
        status_command py3status --config ~/.config/i3/i3status/i3status_center.conf --include /home/guido/.config/i3/pystatus
        position top
        colors {
-             background #1C1C1C
-             focused_workspace  #A4A4A4 #1C1C1C #AAFF1D
-             active_workspace   #424242 #1C1C1C #AAFF1D
-             inactive_workspace #1C1C1C #1C1C1C #888888
+             background #282828
+             focused_workspace  #A4A4A4 #282828 #AAFF1D
+             active_workspace   #424242 #282828 #AAFF1D
+             inactive_workspace #282828 #282828 #888888
              urgent_workspace   #2f343a #900000 #ffffff
              binding_mode       #2f343a #900000 #ffffff
 
@@ -348,11 +348,11 @@ bar {
        status_command py3status --config ~/.config/i3/i3status/i3status_right.conf --include /home/guido/.config/i3/pystatus
        position top
        colors {
-             background #1C1C1C
+             background #282828
 
-             focused_workspace  #A4A4A4 #1C1C1C #AAFF1D
-             active_workspace   #424242 #1C1C1C #AAFF1D
-             inactive_workspace #1C1C1C #1C1C1C #888888
+             focused_workspace  #A4A4A4 #282828 #AAFF1D
+             active_workspace   #424242 #282828 #AAFF1D
+             inactive_workspace #282828 #282828 #888888
              urgent_workspace   #2f343a #900000 #ffffff
              binding_mode       #2f343a #900000 #ffffff
        }
