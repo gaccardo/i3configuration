@@ -253,9 +253,15 @@ for_window [class="Spotify"] border none
 for_window [class="^.*"] border pixel 1
 
 # COLORS
-client.focused          #AAFF1D #1C1C1C #AAFF1D #AAFF1D #000000
-client.focused_inactive #ffffff #1C1C1C #AAFF1D #AAFF1D #000000
-client.unfocused        #000000 #1C1C1C #AAFF1D #AAFF1D #000000
+# client.focused          #AAFF1D #1C1C1C #AAFF1D #AAFF1D #000000
+# client.focused_inactive #ffffff #1C1C1C #AAFF1D #AAFF1D #000000
+# client.unfocused        #000000 #1C1C1C #AAFF1D #AAFF1D #000000
+
+
+client.focused          #424242 #282828 #d5c4a1 #282828 #303836
+client.focused_inactive #7c6f64 #282828 #888888 #AAFF1D #282828
+client.unfocused        #000000 #282828 #888888 #AAFF1D #282828
+
 hide_edge_borders	smart
 show_marks		yes
 
@@ -318,8 +324,8 @@ bar {
        position top
        colors {
              background #282828
-             focused_workspace  #A4A4A4 #282828 #AAFF1D
-             active_workspace   #424242 #282828 #AAFF1D
+             focused_workspace  #928374 #282828 #d5c4a1
+             active_workspace   #424242 #282828 #d5c4a1
              inactive_workspace #282828 #282828 #888888
              urgent_workspace   #2f343a #900000 #ffffff
              binding_mode       #2f343a #900000 #ffffff
@@ -333,8 +339,8 @@ bar {
        position top
        colors {
              background #282828
-             focused_workspace  #A4A4A4 #282828 #AAFF1D
-             active_workspace   #424242 #282828 #AAFF1D
+             focused_workspace  #928374 #282828 #d5c4a1
+             active_workspace   #424242 #282828 #d5c4a1
              inactive_workspace #282828 #282828 #888888
              urgent_workspace   #2f343a #900000 #ffffff
              binding_mode       #2f343a #900000 #ffffff
@@ -349,9 +355,8 @@ bar {
        position top
        colors {
              background #282828
-
-             focused_workspace  #A4A4A4 #282828 #AAFF1D
-             active_workspace   #424242 #282828 #AAFF1D
+             focused_workspace  #928374 #282828 #d5c4a1
+             active_workspace   #424242 #282828 #d5c4a1
              inactive_workspace #282828 #282828 #888888
              urgent_workspace   #2f343a #900000 #ffffff
              binding_mode       #2f343a #900000 #ffffff
