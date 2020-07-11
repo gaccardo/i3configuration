@@ -253,13 +253,13 @@ for_window [class="Spotify"] border none
 for_window [class="^.*"] border pixel 1
 
 # COLORS
-#client.focused          #424242 #282828 #d5c4a1 #AAFF1D #303836
-#client.focused_inactive #7c6f64 #282828 #888888 #AAFF1D #282828
-#client.unfocused        #000000 #282828 #888888 #AAFF1D #282828
+#client.focused          #424242 #262626 #d5c4a1 #AAFF1D #303836
+#client.focused_inactive #7c6f64 #262626 #888888 #AAFF1D #262626
+#client.unfocused        #000000 #262626 #888888 #AAFF1D #262626
 
-client.focused          #424242 #282828 #d5c4a1 #D5C4A1 #303836
-client.focused_inactive #7c6f64 #282828 #888888 #D5C4A1 #282828
-client.unfocused        #000000 #282828 #888888 #D5C4A1 #282828
+client.focused          #424242 #262626 #d5c4a1 #D5C4A1 #303836
+client.focused_inactive #7c6f64 #262626 #888888 #D5C4A1 #262626
+client.unfocused        #000000 #262626 #888888 #D5C4A1 #262626
 
 hide_edge_borders	smart
 show_marks		yes
@@ -322,10 +322,10 @@ bar {
        status_command py3status --config ~/.config/i3/i3status/i3status_left.conf --include /home/guido/.config/i3/pystatus
        position top
        colors {
-             background #282828
-             focused_workspace  #928374 #282828 #d5c4a1
-             active_workspace   #424242 #282828 #d5c4a1
-             inactive_workspace #282828 #282828 #888888
+             background #262626
+             focused_workspace  #928374 #262626 #d5c4a1
+             active_workspace   #424242 #262626 #d5c4a1
+             inactive_workspace #262626 #262626 #888888
              urgent_workspace   #2f343a #900000 #ffffff
              binding_mode       #2f343a #900000 #ffffff
        }
@@ -337,10 +337,10 @@ bar {
        status_command py3status --config ~/.config/i3/i3status/i3status_center.conf --include /home/guido/.config/i3/pystatus
        position top
        colors {
-             background #282828
-             focused_workspace  #928374 #282828 #d5c4a1
-             active_workspace   #424242 #282828 #d5c4a1
-             inactive_workspace #282828 #282828 #888888
+             background #262626
+             focused_workspace  #928374 #262626 #d5c4a1
+             active_workspace   #424242 #262626 #d5c4a1
+             inactive_workspace #262626 #262626 #888888
              urgent_workspace   #2f343a #900000 #ffffff
              binding_mode       #2f343a #900000 #ffffff
 
@@ -353,10 +353,10 @@ bar {
        status_command py3status --config ~/.config/i3/i3status/i3status_right.conf --include /home/guido/.config/i3/pystatus
        position top
        colors {
-             background #282828
-             focused_workspace  #928374 #282828 #d5c4a1
-             active_workspace   #424242 #282828 #d5c4a1
-             inactive_workspace #282828 #282828 #888888
+             background #262626
+             focused_workspace  #928374 #262626 #d5c4a1
+             active_workspace   #424242 #262626 #d5c4a1
+             inactive_workspace #262626 #262626 #888888
              urgent_workspace   #2f343a #900000 #ffffff
              binding_mode       #2f343a #900000 #ffffff
        }
