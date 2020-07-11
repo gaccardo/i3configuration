@@ -33,7 +33,7 @@ Plugin 'jceb/vim-orgmode'
 Plugin 'tpope/vim-speeddating'
 Plugin 'mattn/calendar-vim'
 Plugin 'inkarkat/vim-SyntaxRange'
-
+Plugin 'justinmk/vim-sneak'
 " Plugin 'mattn/vim-gist'
 
 call vundle#end()            " required
