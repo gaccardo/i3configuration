@@ -12,6 +12,7 @@ alias ls="exa"
 alias ek="eksctl"
 alias mkk="microk8s.kubectl"
 alias s="ssh"
+alias ct="ctop -a"
 
 function k8s
   set k8s_status "off"
