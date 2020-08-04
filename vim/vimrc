@@ -83,6 +83,11 @@ nmap <F6> :UndotreeToggle<CR>
 nmap <F7> :call ShowLongLines()<CR>
 nmap <leader><F7> :call ClearLongLines()<CR>
 
+" FZF files
+nmap <silent><leader>fw :Files ~/Workspace/<CR>
+nmap <silent><leader>fh :Files ~/<CR>
+nmap <silent><leader>ff :Files .<CR>
+
 " ## NAME: ~/.vimrc
 " ## delete unwanted spaces for all the file
 " ## :%s/\s\+$//
