@@ -247,7 +247,7 @@ bindsym $mod+Control+Shift+9 move container to workspace $ws29
 # assign applications to workspaces
 for_window [class="Spotify"] move to workspace $ws19
 assign [class="Slack"] $ws20
-for_window [class="Lens"] move to workspace $ws13
+for_window [class="Lens"] move to workspace $ws17
 for_window [class="FlightGear"] move to workspace $ws9
 for_window [class="Spotify"] border none
 for_window [class="^.*"] border pixel 1
