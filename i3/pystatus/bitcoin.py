@@ -27,7 +27,7 @@ class Py3status:
         return_list = [
             "btc p: ${:.2f}".format(data['USD']['last']),
             "btc c: ${:.2f}".format(data['USD']['last'] * 0.27485289),
-            "btc cp: ${:.2f}".format(data['USD']['last'] * 0.27485289 * 127)
+            "btc cp: ${:.2f}".format(data['USD']['last'] * 0.27485289 * 130)
         ]
         if stored_index == 2:
             self.__storage_set(0)
