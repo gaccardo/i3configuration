@@ -23,10 +23,11 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-
+import os
+import subprocess
 from libqtile.config import Key, Screen, Group, Drag, Click
 from libqtile.lazy import lazy
-from libqtile import layout, bar, widget
+from libqtile import layout, bar, widget, hook
 
 from typing import List  # noqa: F401
 
@@ -52,7 +53,7 @@ keys = [
     # Unsplit = 1 window displayed, like Max layout, but still with
     # multiple stack panes
     Key([mod, "shift"], "Return", lazy.layout.toggle_split()),
-    Key([mod], "Return", lazy.spawn("alacritty")),
+    Key([mod], "Return", lazy.spawn("alacritty --config-file /home/guido/.alacritty/alacritty.yml")),
 
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout()),
@@ -60,10 +61,23 @@ keys = [
 
     Key([mod, "control"], "r", lazy.restart()),
     Key([mod, "control"], "q", lazy.shutdown()),
-    Key([mod], "r", lazy.spawncmd()),
+    #Key([mod], "r", lazy.spawncmd()),
+    Key([mod], "r", lazy.spawn("rofi -show run -config ~/.config/i3/rofi/rofi.conf -font 'Envy Code R 12'")),
+
+    # mediakeys
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("pamixer --sink 0 -i 5")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("pamixer --sink 0 -d 5")),
+    Key([], "XF86AudioMute", lazy.spawn("pamixer -t")),
+    Key([], "XF86Calculator", lazy.spawn("xcalc")),
+    Key([], "XF86MyComputer", lazy.spawn("nautilus")),
+    Key([], "XF86HomePage", lazy.spawn("firefox")),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 2%-")),
+    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +2%")),
+#    Key([], "Super_L", lazy.spawn("i3lock")),
+
 ]
 
-groups = [Group(i) for i in "asdfuiop"]
+groups = [Group(i) for i in "1234567890"]
 
 for i in groups:
     keys.extend([
@@ -77,47 +91,57 @@ for i in groups:
         # Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
     ])
 
+# layout common settings
+common_settings = {
+  "border": 0,
+  "border_normal": "#262626",
+  "border_focus": "#262626",
+  "border_normal": "#262626",
+  "border_normal": "#262626",
+}
+
 layouts = [
     layout.Max(),
-    layout.Stack(num_stacks=2),
+    layout.Stack(num_stacks=4),
     # Try more layouts by unleashing below layouts.
     #layout.Bsp(),
-    layout.Columns(),
-    #layout.Matrix(),
-    #layout.MonadTall(),
+    layout.Columns(**common_settings),
+    layout.Matrix(**common_settings),
+    layout.MonadTall(**common_settings),
     #layout.MonadWide(),
     #layout.RatioTile(),
     #layout.Tile(),
-    #layout.TreeTab(),
+    layout.TreeTab(),
     #layout.VerticalTile(),
     #layout.Zoomy(),
 ]
 
 widget_defaults = dict(
-    font='sans',
+    font='Envy Code R',
     fontsize=12,
-    padding=3,
+    padding=1,
 )
 extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        bottom=bar.Bar(
+        top=bar.Bar(
             [
                 widget.CurrentLayout(),
                 widget.GroupBox(),
                 widget.Prompt(),
                 widget.WindowName(),
-                widget.TextBox("default config", name="default"),
+                #widget.TextBox("default config", name="default"),
+                widget.Battery(),
                 widget.Systray(),
                 widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
-                widget.QuickExit(),
+                #widget.QuickExit(),
             ],
-            24,
+            18,
+            background="#262626"
         ),
     ),
 ]
-/
 # Drag floating layouts.
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(),
@@ -162,3 +186,9 @@ focus_on_window_activation = "smart"
 # We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
 # java that happens to be on java's whitelist.
 wmname = "LG3D"
+
+
+@hook.subscribe.startup_once
+def autostart():
+    home = os.path.expanduser('~/.bin/nm-applet-reset.sh')
+    subprocess.call([home])
