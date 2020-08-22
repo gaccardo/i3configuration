@@ -71,7 +71,7 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown()),
     #Key([mod], "r", lazy.spawncmd()),
 
-    Key([mod, "shift"], "x", lazy.spawn("i3lock")),
+    Key([mod, "shift"], "x", lazy.spawn("i3lock -i /home/guido/Pictures/Wallpapers/lock.png -t -f")),
     # mediakeys
     Key([mod], "F11", lazy.spawn("pamixer --sink 1 -i 5")),
     Key([mod], "F10", lazy.spawn("pamixer --sink 1 -d 5")),
