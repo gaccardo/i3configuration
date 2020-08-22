@@ -382,9 +382,9 @@ bindsym $mod+F7 exec /home/guido/.config/i3/scripts/spotify_controls/sp.sh play
 bindsym $mod+F8 exec /home/guido/.config/i3/scripts/spotify_controls/sp.sh next
 
 
-#exec --no-startup-id kitty --name=math -e python
-#for_window [instance="math"] floating enable
-#for_window [instance="math"] move scratchpad, border pixel 3; [instance="math"] scratchpad show; move scratchpad
-#for_window [instance="math"] resize set 640 480
+exec --no-startup-id kitty --name="todo" -e "vim ~/Nextcloud/Documents/Notes/general.org"
+for_window [instance="todo"] floating enable
+for_window [instance="todo"] move scratchpad; [instance="todo"] scratchpad show; move scratchpad
+for_window [instance="todo"] resize set 1000 800
 
-#bindsym $mod+u [instance="math"] scratchpad show
+bindsym $mod+u scratchpad show

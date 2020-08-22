@@ -73,14 +73,10 @@ keys = [
 
     Key([mod, "shift"], "x", lazy.spawn("i3lock")),
     # mediakeys
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("pamixer --sink 0 -i 5")),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("pamixer --sink 0 -d 5")),
-    Key([], "XF86AudioMute", lazy.spawn("pamixer -t")),
-    Key([], "XF86Calculator", lazy.spawn("xcalc")),
-    Key([], "XF86MyComputer", lazy.spawn("nautilus")),
-    Key([], "XF86HomePage", lazy.spawn("firefox")),
-    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 2%-")),
-    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +2%")),
+    Key([mod], "F11", lazy.spawn("pamixer --sink 1 -i 5")),
+    Key([mod], "F10", lazy.spawn("pamixer --sink 1 -d 5")),
+    Key([mod], "F9", lazy.spawn("pamixer -t")),
+    Key([mod], "d", lazy.spawn("nautilus")),
 #    Key([], "Super_L", lazy.spawn("i3lock")),
 
 ]
@@ -146,8 +142,8 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.CurrentLayout(),
                 widget.GroupBox(),
+                widget.CurrentLayout(),
                 widget.Prompt(),
                 widget.WindowName(),
                 widget.CPU(),
@@ -162,6 +158,12 @@ screens = [
             18,
             background="#262626"
         ),
+    ),
+    Screen(
+        top=bar.Bar([], 18)
+    ),
+    Screen(
+        top=bar.Bar([], 18)
     ),
 ]
 # Drag floating layouts.
@@ -214,3 +216,5 @@ wmname = "LG3D"
 def autostart():
     home = os.path.expanduser('~/.bin/nm-applet-reset.sh')
     subprocess.call([home])
+    sound = os.path.expanduser('~/.bin/pasystray-reset.sh')
+    subprocess.call([sound])
