@@ -369,6 +369,7 @@ exec nitrogen --restore
 exec --no-startup-id /home/guido/.bin/nm-applet-reset.sh
 exec /usr/bin/pasystray
 exec --no-startup-id /usr/bin/owncloud
+exec --no-startup-id /usr/bin/dunst
 
 # MEDIA KEYS
 bindsym $mod+F11 exec /home/guido/.config/i3/scripts/vol_up.sh

@@ -227,3 +227,6 @@ let g:org_todo_keyword_faces=[
 \  ['DONE', 'red'],
 \  ]
 let g:org_agenda_files=['/home/guido/ownCloud/.todo.org']
+
+" orgmode macros
+map #1 o#+BEGIN_SRC sh<Enter><Enter>#+END_SRC<esc>1ki
