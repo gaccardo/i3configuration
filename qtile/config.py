@@ -35,15 +35,23 @@ mod = "mod4"
 
 keys = [
     # Switch between windows in current stack pane
+    Key([mod], "h", lazy.layout.left()),
     Key([mod], "k", lazy.layout.down()),
     Key([mod], "j", lazy.layout.up()),
+    Key([mod], "l", lazy.layout.right()),
+
+    # max window
+    Key([mod], "f", lazy.window.toggle_fullscreen()),
 
     # Move windows up or down in current stack
+    Key([mod, "control"], "h", lazy.layout.shuffle_left()),
     Key([mod, "control"], "k", lazy.layout.shuffle_down()),
     Key([mod, "control"], "j", lazy.layout.shuffle_up()),
+    Key([mod, "control"], "l", lazy.layout.shuffle_right()),
 
     # Switch window focus to other pane(s) of stack
-    Key([mod], "space", lazy.layout.next()),
+    #Key([mod], "space", lazy.layout.next()),
+    Key([mod], "space", lazy.spawn("rofi -show run -config ~/.config/i3/rofi/rofi.conf -font 'Envy Code R 12'")),
 
     # Swap panes of split stack
     Key([mod, "shift"], "space", lazy.layout.rotate()),
@@ -59,11 +67,11 @@ keys = [
     Key([mod], "Tab", lazy.next_layout()),
     Key([mod], "w", lazy.window.kill()),
 
-    Key([mod, "control"], "r", lazy.restart()),
+    Key([mod], "r", lazy.restart()),
     Key([mod, "control"], "q", lazy.shutdown()),
     #Key([mod], "r", lazy.spawncmd()),
-    Key([mod], "r", lazy.spawn("rofi -show run -config ~/.config/i3/rofi/rofi.conf -font 'Envy Code R 12'")),
 
+    Key([mod, "shift"], "x", lazy.spawn("i3lock")),
     # mediakeys
     Key([], "XF86AudioRaiseVolume", lazy.spawn("pamixer --sink 0 -i 5")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("pamixer --sink 0 -d 5")),
@@ -108,10 +116,21 @@ layouts = [
     layout.Columns(**common_settings),
     layout.Matrix(**common_settings),
     layout.MonadTall(**common_settings),
-    #layout.MonadWide(),
+    layout.MonadWide(**common_settings),
     #layout.RatioTile(),
     #layout.Tile(),
-    layout.TreeTab(),
+    layout.TreeTab(
+        **common_settings,
+        font="Envy Code R",
+        font_size="12",
+        bg_color="#323232",
+        active_bg="#606060",
+        inactive_bg="#404040",
+        margin_left=0,
+        padding_left=0,
+        panel_width=100,
+        sections=["tabs"]
+    ),
     #layout.VerticalTile(),
     #layout.Zoomy(),
 ]
@@ -131,7 +150,10 @@ screens = [
                 widget.GroupBox(),
                 widget.Prompt(),
                 widget.WindowName(),
+                widget.CPU(),
+                widget.Net(),
                 #widget.TextBox("default config", name="default"),
+                widget.BitcoinTicker(),
                 widget.Battery(),
                 widget.Systray(),
                 widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
