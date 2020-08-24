@@ -73,9 +73,16 @@ keys = [
 
     Key([mod, "shift"], "x", lazy.spawn("i3lock -i /home/guido/Pictures/Wallpapers/lock.png -t -f")),
     # mediakeys
-    Key([mod], "F11", lazy.spawn("pamixer --sink 1 -i 5")),
-    Key([mod], "F10", lazy.spawn("pamixer --sink 1 -d 5")),
-    Key([mod], "F9", lazy.spawn("pamixer -t")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("pamixer --sink 0 -i 5")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("pamixer --sink 0 -d 5")),
+    Key([], "XF86AudioMute", lazy.spawn("pamixer -t")),
+    Key([], "XF86Calculator", lazy.spawn("xcalc")),
+    Key([], "XF86MyComputer", lazy.spawn("nautilus")),
+    Key([], "XF86HomePage", lazy.spawn("qutebrowser")),
+    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +2%")),
+    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 2%-")),
+
+
     Key([mod], "d", lazy.spawn("nautilus")),
 #    Key([], "Super_L", lazy.spawn("i3lock")),
 
@@ -143,20 +150,38 @@ screens = [
         top=bar.Bar(
             [
                 widget.GroupBox(),
-                widget.CurrentLayout(),
+                widget.Spacer(),
                 widget.Prompt(),
-                widget.WindowName(),
-                widget.CPU(),
-                widget.Net(),
+                #widget.CPU(),
+                #widget.Net(),
                 #widget.TextBox("default config", name="default"),
-                widget.BitcoinTicker(),
+                #widget.BitcoinTicker(),
                 widget.Battery(),
+                widget.BatteryIcon(),
                 widget.Systray(),
                 widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
+                widget.Spacer(length=10),
+                widget.CurrentLayout(),
                 #widget.QuickExit(),
             ],
             18,
             background="#262626"
+        ),
+        bottom=bar.Bar(
+            [
+                widget.WindowName(),
+                widget.Spacer(),
+                widget.CheckUpdates()   
+                widget.Net(),
+                widget.CPUGraph(),
+                widget.MemoryGraph(),
+                widget.BitcoinTicker(),
+                widget.Spacer(length=10),
+                widget.CapsNumLockIndicator(),
+                widget.CurrentLayout(),
+            ],
+            18,
+            background="#262626",
         ),
     ),
     Screen(
