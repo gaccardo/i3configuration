@@ -331,6 +331,19 @@ bar {
        }
 }
 
+#bar {
+#       output DP-1
+#       #status_command py3status --config ~/.config/i3/i3status/i3status_down.conf --include /home/guido/.config/i3/pystatus
+#       position bottom
+#       colors {
+#             background #262626
+#             focused_workspace  #928374 #262626 #d5c4a1
+#             active_workspace   #424242 #262626 #d5c4a1
+#             inactive_workspace #262626 #262626 #888888
+#             urgent_workspace   #2f343a #900000 #ffffff
+#             binding_mode       #2f343a #900000 #ffffff
+#       }
+#}
 # center screen
 bar {
        output DVI-D-0
@@ -385,6 +398,6 @@ bindsym $mod+F8 exec /home/guido/.config/i3/scripts/spotify_controls/sp.sh next
 exec --no-startup-id kitty --name="todo" -e "vim ~/Nextcloud/Documents/Notes/general.org"
 for_window [instance="todo"] floating enable
 for_window [instance="todo"] move scratchpad; [instance="todo"] scratchpad show; move scratchpad
-for_window [instance="todo"] resize set 1000 800
+for_window [instance="todo"] resize set 1000 800; [instance="todo"] border pixel 5
 
 bindsym $mod+u scratchpad show
