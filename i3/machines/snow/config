@@ -141,7 +141,7 @@ bindsym $mod+$mod2+6 workspace $ws16
 bindsym $mod+$mod2+7 workspace $ws17
 bindsym $mod+$mod2+8 workspace $ws18
 bindsym $mod+$mod2+9 workspace $ws19
-bindsym $mod+$mod2+0 workspace $ws20
+bindsym $mod+$mod2+0 workspace $ws20; layout tabbed
 bindsym $mod+Control+1 workspace $ws21
 bindsym $mod+Control+2 workspace $ws22
 bindsym $mod+Control+3 workspace $ws23
@@ -244,14 +244,6 @@ bindsym $mod+Control+Shift+8 move container to workspace $ws28
 bindsym $mod+Control+Shift+9 move container to workspace $ws29
 
 
-# assign applications to workspaces
-for_window [class="Spotify"] move to workspace $ws19
-assign [class="Slack"] $ws20
-for_window [class="Lens"] move to workspace $ws17
-for_window [class="FlightGear"] move to workspace $ws9
-for_window [class="Spotify"] border none
-for_window [class="^.*"] border pixel 1
-
 # COLORS
 #client.focused          #424242 #262626 #d5c4a1 #AAFF1D #303836
 #client.focused_inactive #7c6f64 #262626 #888888 #AAFF1D #262626
@@ -331,20 +323,6 @@ bar {
        }
 }
 
-#bar {
-#       output DP-1
-#       #status_command py3status --config ~/.config/i3/i3status/i3status_down.conf --include /home/guido/.config/i3/pystatus
-#       position bottom
-#       colors {
-#             background #262626
-#             focused_workspace  #928374 #262626 #d5c4a1
-#             active_workspace   #424242 #262626 #d5c4a1
-#             inactive_workspace #262626 #262626 #888888
-#             urgent_workspace   #2f343a #900000 #ffffff
-#             binding_mode       #2f343a #900000 #ffffff
-#       }
-#}
-# center screen
 bar {
        output DVI-D-0
        status_command py3status --config ~/.config/i3/i3status/i3status_center.conf --include /home/guido/.config/i3/pystatus
@@ -376,13 +354,21 @@ bar {
 }
 
 # statup apps
-
 exec nitrogen --restore
-#exec --no-startup-id nm-applet
 exec --no-startup-id /home/guido/.bin/nm-applet-reset.sh
 exec /usr/bin/pasystray
-exec --no-startup-id /usr/bin/owncloud
+exec --no-startup-id /usr/bin/nextcloud
 exec --no-startup-id /usr/bin/dunst
+exec --no-startup-id /usr/bin/telegram-desktop
+
+# assign applications to workspaces
+for_window [class="Spotify"] move to workspace $ws19
+assign [class="Slack"] $ws20
+for_window [class="Lens"] move to workspace $ws17
+for_window [class="FlightGear"] move to workspace $ws9
+for_window [class="Spotify"] border none
+for_window [class="^.*"] border pixel 1
+for_window [class="TelegramDesktop"] move to workspace $ws20
 
 # MEDIA KEYS
 bindsym $mod+F11 exec /home/guido/.config/i3/scripts/vol_up.sh
@@ -394,8 +380,7 @@ bindsym $mod+F6 exec /home/guido/.config/i3/scripts/spotify_controls/sp.sh prev
 bindsym $mod+F7 exec /home/guido/.config/i3/scripts/spotify_controls/sp.sh play
 bindsym $mod+F8 exec /home/guido/.config/i3/scripts/spotify_controls/sp.sh next
 
-
-exec --no-startup-id kitty --name="todo" -e "vim ~/Nextcloud/Documents/Notes/general.org"
+exec --no-startup-id kitty --name="todo" -e /home/guido/.bin/notes.sh
 for_window [instance="todo"] floating enable
 for_window [instance="todo"] move scratchpad; [instance="todo"] scratchpad show; move scratchpad
 for_window [instance="todo"] resize set 1000 800; [instance="todo"] border pixel 5
