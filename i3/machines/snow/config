@@ -358,8 +358,10 @@ exec nitrogen --restore
 exec --no-startup-id /home/guido/.bin/nm-applet-reset.sh
 exec /usr/bin/pasystray
 exec --no-startup-id /usr/bin/nextcloud
+exec --no-startup-id /usr/bin/slack
 exec --no-startup-id /usr/bin/dunst
 exec --no-startup-id /usr/bin/telegram-desktop
+exec --no-startup-id /usr/bin/firejail --net=none keepassxc
 
 # assign applications to workspaces
 for_window [class="Spotify"] move to workspace $ws19
