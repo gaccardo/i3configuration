@@ -171,7 +171,7 @@ screens = [
             [
                 widget.WindowName(),
                 widget.Spacer(),
-                widget.CheckUpdates()   
+                widget.CheckUpdates(),
                 widget.Net(),
                 widget.CPUGraph(),
                 widget.MemoryGraph(),
