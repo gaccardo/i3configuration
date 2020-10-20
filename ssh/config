@@ -9,6 +9,16 @@ Host github.com
 
 ## DEVOPS
 
+Host cdnproxy
+    Hostname 10.10.1.174
+    User ubuntu
+	IdentityFile ~/.keys/bridge_cdn.pem
+
+Host bubble
+    Hostname 10.10.20.133
+    User ubuntu
+	IdentityFile ~/.keys/bridge_production.pem
+
 Host monitoring01
 	HostName 10.10.156.200
 	User guido
