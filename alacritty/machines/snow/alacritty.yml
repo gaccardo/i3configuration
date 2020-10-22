@@ -110,21 +110,27 @@ font:
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
     family: Envy Code R
+    #family: Sauce Code Pro Nerd Font Complete 
+#    Family: Hermit Regular
+#    family: Iosevka Thin Nerd Font Complete Mono
+    #family: Source Code Pro for Powerline
+    #family: Arimo for Powerline
+#    family: SauceCodePro Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
-    style: Regular
+    #style: Regular
 
   # Bold font face
-  bold:
+  #bold:
     # Font family
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
     #family: monospace
-    family: Envy Code R
+    #family: Envy Code R
 
     # The `style` can be specified to pick a specific face.
-    style: Bold
+    #style: Bold
 
   # Italic font face
   #italic:
