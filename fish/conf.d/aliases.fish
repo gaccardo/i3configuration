@@ -33,6 +33,7 @@ function ddt
       set new_status no
   end
   set -g theme_display_date $new_status
+  set -g theme_display_cmd_duration $new_status
 end
 
 # Terminal
