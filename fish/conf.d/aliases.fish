@@ -13,6 +13,8 @@ alias ek="eksctl"
 alias mkk="microk8s.kubectl"
 alias s="ssh"
 alias ct="ctop -a"
+alias kdiff="kitty +kitten diff"
+alias icat="kitty +kitten icat --align left"
 
 function k8s
   set k8s_status "off"
