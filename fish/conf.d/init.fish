@@ -23,13 +23,19 @@ set -lx TERM xterm
 set TERM xterm
 
 # recursive search
-function fish_user_key_bindings
-  bind \cr 'peco_select_history (commandline -b)'
-end
+#function fish_user_key_bindings
+#  bind \cr 'peco_select_history (commandline -b)'
+#end
 
 set PATH $PATH $HOME/.bin/
 
+## FZF
 # Enable CTRL + t
 fzf_key_bindings
+set --export FZF_CTRL_R_OPTS "--min-height=30"
+set --export FZF_CTRL_T_OPTS "--min-height=30"
+set --export FZF_ALT_C_OPTS "--min-height=30"
 
 set fish_color_search_match --background='484848'
+
+set --export EXA_COLORS "uu=0;36:gu=0;36"
