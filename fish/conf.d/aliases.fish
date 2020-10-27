@@ -15,6 +15,7 @@ alias s="ssh"
 alias ct="ctop -a"
 alias kdiff="kitty +kitten diff"
 alias icat="kitty +kitten icat --align left"
+alias fcat="fzf --preview 'cat {}'"
 
 function k8s
   set k8s_status "off"
@@ -66,11 +67,12 @@ alias sp="set -g fish_prompt_pwd_dir_length 0" # Show full path
 alias von="fish_vi_key_bindings"               # Set VIM mode
 alias voff="fish_default_key_bindings"         # Set VIM mode
 
-alias gc="git branch | fzf | xargs -r -I {} git checkout {}"
 alias psearch="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S"
 
 function fssh -d "Fuzzy-find ssh host via ag and ssh into it"
   ag --ignore-case '^host [^*]' ~/.ssh/config | cut -d ' ' -f 2 | fzf | read -l result; and ssh "$result"
 end
 
-alias keepassxc="firejail keepassxc"
+# GIT
+alias gc="git branch | fzf | xargs -r -I {} git checkout {}"
+alias gs="git diff --name-only | fzf --multi --ansi --preview 'git diff --color=always -- {-1}'"
