@@ -55,8 +55,10 @@ end
 
 # EXA
 alias ls="exa --header"
-alias ll="exa --long --header --git"
-alias tree="exa --tree"
+alias ll="exa --long --header --git --classify --group --time-style=long-iso"
+alias lg="exa --long --header --git --classify --group --time-style=long-iso --grid"
+alias tree="exa --tree --level=2"
+alias treel="exa --tree --level=2 --long --git"
 
 # FISH
 alias hp="set -g fish_prompt_pwd_dir_length 1" # Hide full path
