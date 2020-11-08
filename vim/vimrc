@@ -35,6 +35,7 @@ Plugin 'mattn/calendar-vim'
 Plugin 'inkarkat/vim-SyntaxRange'
 Plugin 'justinmk/vim-sneak'
 " Plugin 'mattn/vim-gist'
+Plugin 'szw/vim-maximizer'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -230,3 +231,8 @@ let g:org_agenda_files=['/home/guido/ownCloud/.todo.org']
 
 " orgmode macros
 map #1 o#+BEGIN_SRC sh<Enter><Enter>#+END_SRC<esc>1ki
+
+" Maximizer
+nnoremap <silent><F4> :MaximizerToggle<CR>
+vnoremap <silent><F4> :MaximizerToggle<CR>gv
+inoremap <silent><F4> <C-o>:MaximizerToggle<CR>
