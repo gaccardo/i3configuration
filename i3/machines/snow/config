@@ -371,6 +371,7 @@ for_window [class="FlightGear"] move to workspace $ws9
 for_window [class="Spotify"] border none
 for_window [class="^.*"] border pixel 1
 for_window [class="TelegramDesktop"] move to workspace $ws20
+for_window [class="keepassxc"] move to workspace $ws10
 
 # MEDIA KEYS
 bindsym $mod+F11 exec /home/guido/.config/i3/scripts/vol_up.sh
