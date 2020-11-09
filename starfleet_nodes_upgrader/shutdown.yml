@@ -1,0 +1,14 @@
+---
+- name: power cycle starfleet vms
+  hosts: "{{ hosts }}"
+  tasks:
+  
+    - name: shutdown vm
+      shell: shutdown -h now
+      when: "{{ action }} is shutdown"
+      become: yes
+
+    - name: reboot vm
+      shell: shutdown -r now
+      when: "{{ action }} is reboot"
+      become: yes

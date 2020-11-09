@@ -1,0 +1,112 @@
+---
+- name: install fish, OMF and my configuration
+  hosts: "{{ hosts }}"
+
+  vars_prompt:
+    - name: username
+      prompt: What is your username?
+      private: no
+
+  tasks:
+  
+    - name: install fish
+      apt:
+        name: "{{ item }}"
+        state: present
+        update_cache: yes
+      with_items:
+        - fish
+        - fzf
+        - unzip
+      become: yes
+      tags:
+        - exa
+
+    - name: download OMF installer
+      get_url:
+        url: https://get.oh-my.fish
+        dest: /tmp/omf.fish
+        mode: 0744
+
+    - name: check if OMF should be installed
+      stat:
+        path: ~/.local/share/omf/
+      register: omg_installation_directory
+
+    - name: install OMF
+      shell: 
+        cmd: fish omf.fish --yes --noninteractive
+        chdir: /tmp/
+      when: not omg_installation_directory.stat.exists
+
+    - name: set fish a default shell for {{ username }}
+      user:
+        name: "{{ username }}"
+        shell: /usr/bin/fish
+      become: yes
+
+    - name: modules installer helper
+      copy:
+        src: modules.fish
+        dest: /tmp/modules.fish
+      tags:
+        - modules
+
+    - name: install modules
+      shell:
+        cmd: fish modules.fish
+        chdir: /tmp/
+      tags:
+        - modules
+
+    - name: download exa
+      get_url:
+        url: https://github.com/ogham/exa/releases/download/v0.9.0/exa-linux-x86_64-0.9.0.zip
+        dest: /tmp/exa-linux-x86_64-0.9.0.zip
+      tags:
+        - exa
+
+    - name: unzip exa
+      unarchive:
+        src: /tmp/exa-linux-x86_64-0.9.0.zip
+        dest: /tmp/
+        remote_src: yes
+      tags:
+        - exa
+
+    - name: move exa to /usr/bin
+      shell:
+        cmd: mv /tmp/exa-linux-x86_64 /usr/bin/exa
+      become: yes
+      tags:
+        - exa
+
+    - name: clone my configuration
+      git:
+        repo: https://github.com/gaccardo/i3configuration.git
+        dest: ~/.config/xc3d
+      tags:
+        - xc3d
+
+    - name: apply my fish conf.d
+      shell:
+        cmd: cp -rf ~/.config/xc3d/fish/conf.d/* ~/.config/fish/conf.d/
+      tags:
+        - xc3d
+
+    - name: create completions
+      file:
+        path: "~/.config/fish/{{ item }}/"
+        state: directory
+      with_items:
+        - completions
+      tags:
+        - xc3d
+
+    - name: copy completion files
+      shell:
+        cmd: "cp -rf ~/.config/xc3d/fish/{{ item }}/* ~/.config/fish/{{ item }}/"
+      with_items:
+        - completions
+      tags:
+        - xc3d
