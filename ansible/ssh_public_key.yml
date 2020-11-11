@@ -1,0 +1,16 @@
+---
+- name: update ssh public key on hosts
+  hosts: "{{ hosts }}"
+  tasks:
+  
+    - name: make sure .ssh exists
+      file:
+        path: "/home/{{ ansible_ssh_user }}/.ssh/"
+        state: directory
+        mode: 0700
+
+    - name: copy authorized_keys
+      copy:
+        src: ssh_public_key/authorized_keys
+        dest: "/home/{{ ansible_ssh_user }}/.ssh/authorized_keys"
+        mode: 0600
