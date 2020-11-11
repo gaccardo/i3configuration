@@ -352,4 +352,12 @@ Host wall
 	HostName 10.5.0.200
 	User guido
 
+Host gaw-backend
+    HostName 10.0.162.157
+    User guido
+    Port 2222
 
+Host gaw-frontend
+    HostName 10.0.1.172
+    Port 2222
+    User guido
