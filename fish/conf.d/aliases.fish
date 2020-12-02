@@ -76,3 +76,6 @@ end
 # GIT
 alias gc="git branch | fzf | xargs -r -I {} git checkout {}"
 alias gs="git diff --name-only | fzf --multi --ansi --preview 'git diff --color=always -- {-1}'"
+
+# Crypto
+alias btc="/home/guido/Workspace/Personal/crypto/bitcoin.py"
