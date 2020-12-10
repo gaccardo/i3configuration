@@ -49,6 +49,8 @@ alias ll="exa --long --header --git"
 alias tree="exa --tree"
 alias vi="vim"
 alias bt="bashtop"
+alias e="emacs"
+alias randpass='openssl rand -hex $1'
 
 function vf
   du -a . | awk '{print $2}' | fzf --ansi | xargs -r $EDITOR
@@ -79,3 +81,4 @@ alias gs="git diff --name-only | fzf --multi --ansi --preview 'git diff --color=
 
 # Crypto
 alias btc="/home/guido/Workspace/Personal/crypto/bitcoin.py"
+
