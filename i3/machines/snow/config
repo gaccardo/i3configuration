@@ -306,6 +306,15 @@ mode "launcher" {
 }
 bindsym $mod+o mode "launcher"
 
+mode "firelauncher" {
+   bindsym f exec firejail --private=/home/guido/Workspace/Personal/netjail/homes/firefox/ firefox --private
+   bindsym p exec firejail firefox --private
+   bindsym d exec firejail --private firefox --private
+	bindsym Escape mode "default"
+}
+bindsym $mod+i mode "firelauncher"
+
+
 # status bars
 
 # left screen
@@ -319,7 +328,7 @@ bar {
              active_workspace   #424242 #262626 #d5c4a1
              inactive_workspace #262626 #262626 #888888
              urgent_workspace   #2f343a #900000 #ffffff
-             binding_mode       #2f343a #900000 #ffffff
+             binding_mode       #2f343a #928374 #55ff00
        }
 }
 
@@ -333,8 +342,7 @@ bar {
              active_workspace   #424242 #262626 #d5c4a1
              inactive_workspace #262626 #262626 #888888
              urgent_workspace   #2f343a #900000 #ffffff
-             binding_mode       #2f343a #900000 #ffffff
-
+             binding_mode       #2f343a #928374 #55ff00
        }
 }
 
@@ -349,7 +357,7 @@ bar {
              active_workspace   #424242 #262626 #d5c4a1
              inactive_workspace #262626 #262626 #888888
              urgent_workspace   #2f343a #900000 #ffffff
-             binding_mode       #2f343a #900000 #ffffff
+             binding_mode       #2f343a #928374 #55ff00
        }
 }
 
