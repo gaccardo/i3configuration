@@ -121,6 +121,8 @@ set $ws28 "28"
 set $ws29 "29"
 set $ws30 "30"
 
+set $wsconfig "conf"
+
 # switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -152,6 +154,8 @@ bindsym $mod+Control+7 workspace $ws27
 bindsym $mod+Control+8 workspace $ws28
 bindsym $mod+Control+9 workspace $ws29
 bindsym $mod+Control+0 workspace $ws30
+
+bindsym $mod+$mod2+c workspace $wsconfig
 
 # switch without ws number
 bindsym $mod+Tab workspace back_and_forth
@@ -205,6 +209,8 @@ workspace $ws18 output $monit_two
 workspace $ws19 output $monit_two
 workspace $ws20 output $monit_two
 
+workspace $wsconfig output $monit_two
+
 # move focused container to workspace
 
 # center screen
@@ -230,6 +236,7 @@ bindsym $mod+$mod2+Shift+7 move container to workspace $ws17
 bindsym $mod+$mod2+Shift+8 move container to workspace $ws18
 bindsym $mod+$mod2+Shift+9 move container to workspace $ws19
 bindsym $mod+$mod2+Shift+0 move container to workspace $ws20
+bindsym $mod+$mod2+Shift+c move container to workspace $wsconfig
 
 # left screen
 bindsym $mod+Control+Shift+0 move container to workspace $ws30
