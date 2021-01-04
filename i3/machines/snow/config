@@ -337,6 +337,7 @@ bar {
              urgent_workspace   #2f343a #900000 #ffffff
              binding_mode       #2f343a #928374 #55ff00
        }
+       tray_output DVI-D-0
 }
 bar {
        output DP-1
@@ -350,6 +351,7 @@ bar {
              urgent_workspace   #2f343a #900000 #ffffff
              binding_mode       #2f343a #928374 #55ff00
        }
+       tray_output DVI-D-0
 }
 
 bar {
@@ -364,6 +366,7 @@ bar {
              urgent_workspace   #2f343a #900000 #ffffff
              binding_mode       #2f343a #928374 #55ff00
        }
+       tray_output DVI-D-0
 }
 
 # left screen
@@ -379,6 +382,7 @@ bar {
              urgent_workspace   #2f343a #900000 #ffffff
              binding_mode       #2f343a #928374 #55ff00
        }
+       tray_output DVI-D-0
 }
 
 
