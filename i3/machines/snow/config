@@ -324,11 +324,24 @@ bindsym $mod+i mode "firelauncher"
 
 # status bars
 
-# left screen
+# right screen
 bar {
        output DP-1
        status_command py3status --config ~/.config/i3/i3status/i3status_left.conf --include /home/guido/.config/i3/pystatus
        position top
+       colors {
+             background #262626
+             focused_workspace  #928374 #262626 #d5c4a1
+             active_workspace   #424242 #262626 #d5c4a1
+             inactive_workspace #262626 #262626 #888888
+             urgent_workspace   #2f343a #900000 #ffffff
+             binding_mode       #2f343a #928374 #55ff00
+       }
+}
+bar {
+       output DP-1
+       status_command py3status --config ~/.config/i3/i3status/i3status_right_bottom.conf --include /home/guido/.config/i3/pystatus
+       position bottom
        colors {
              background #262626
              focused_workspace  #928374 #262626 #d5c4a1
@@ -353,7 +366,7 @@ bar {
        }
 }
 
-# right screen
+# left screen
 bar {
        output HDMI-0
        status_command py3status --config ~/.config/i3/i3status/i3status_right.conf --include /home/guido/.config/i3/pystatus
@@ -367,6 +380,7 @@ bar {
              binding_mode       #2f343a #928374 #55ff00
        }
 }
+
 
 # statup apps
 exec nitrogen --restore

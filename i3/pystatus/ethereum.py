@@ -1,44 +1,18 @@
 import os
+from bs4 import BeautifulSoup
 import requests
-import pickle
 
 
 class Py3status:
 
-    def __init__(self):
-        self.on_click(None)
-
-    def __storage_get(self):
-        if not os.path.exists("/tmp/ethereum.p"):
-            self.__storage_set(0)
-            return {"value": 0}
-        value = pickle.load(open("/tmp/ethereum.p", "rb"))
-        return value
-
-    def __storage_set(self, value):
-        value = {"value": int(value)}
-        pickle.dump(value, open("/tmp/ethereum.p", "wb"))
-
-    def on_click(self, event):
-        #rr = requests.get("<eth ticker>")
-        #data = rr.json()
-        #data = {'USD': {'last': 1.0}}
-        stored_index = self.__storage_get()['value']
-        #return_list = [
-        #    "btc p: ${:.2f}".format(data['USD']['last']),
-        #    "btc c: ${:.2f}".format(data['USD']['last'] * 0.27485289),
-        #    "btc cp: ${:.2f}".format(data['USD']['last'] * 0.27485289 * 127)
-        #]
-        if stored_index == 2:
-            self.__storage_set(0)
-        if stored_index >= 0 and stored_index < 2:
-            self.__storage_set(stored_index+1)
-
-        self.full_text = return_list[stored_index]
-
-    def bitcoin(self):
+    def ethereum(self):
+        r = requests.get("https://ethereumprice.org/")
+        raw_html = r.content
+        soup = BeautifulSoup(raw_html, 'html.parser')
+        raw_price = soup.select('span.value')[0].text
+        price = float(raw_price.replace(",", ""))
         return {
-            'full_text': self.full_text,
+            'full_text': "${:.2f}".format(price),
             'cached_until': self.py3.time_in(300),
         }
 
