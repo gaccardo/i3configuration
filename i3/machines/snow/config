@@ -123,6 +123,8 @@ set $ws30 "30"
 
 set $wsconfig "conf"
 
+set $wskeepassxc "kpass"
+
 # switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -156,6 +158,8 @@ bindsym $mod+Control+9 workspace $ws29
 bindsym $mod+Control+0 workspace $ws30
 
 bindsym $mod+$mod2+c workspace $wsconfig
+
+bindsym $mod+$mod2+k workspace $wskeepassxc 
 
 # switch without ws number
 bindsym $mod+Tab workspace back_and_forth
@@ -211,6 +215,8 @@ workspace $ws20 output $monit_two
 
 workspace $wsconfig output $monit_two
 
+workspace $wskeepassxc output $monit_two
+
 # move focused container to workspace
 
 # center screen
@@ -237,6 +243,7 @@ bindsym $mod+$mod2+Shift+8 move container to workspace $ws18
 bindsym $mod+$mod2+Shift+9 move container to workspace $ws19
 bindsym $mod+$mod2+Shift+0 move container to workspace $ws20
 bindsym $mod+$mod2+Shift+c move container to workspace $wsconfig
+bindsym $mod+$mod2+Shift+k move container to workspace $wskeepassxc
 
 # left screen
 bindsym $mod+Control+Shift+0 move container to workspace $ws30
@@ -404,7 +411,7 @@ for_window [class="FlightGear"] move to workspace $ws9
 for_window [class="Spotify"] border none
 for_window [class="^.*"] border pixel 1
 for_window [class="TelegramDesktop"] move to workspace $ws20
-for_window [class="keepassxc"] move to workspace $ws10
+for_window [class="keepassxc"] move to workspace $wskeepassxc
 
 # MEDIA KEYS
 bindsym $mod+F11 exec /home/guido/.config/i3/scripts/vol_up.sh
