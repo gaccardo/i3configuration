@@ -8,7 +8,7 @@ class Py3status:
     def bitcoin(self):
         rr = requests.get("https://blockchain.info/ticker")
         data = rr.json()
-        full_text = "${:.2f}".format(data['USD']['last']*0.36136915)
+        full_text = "${:.2f}".format(data['USD']['last']*0.36575873)
         return {
             'full_text': full_text,
             'cached_until': self.py3.time_in(300),
