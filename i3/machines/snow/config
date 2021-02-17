@@ -435,6 +435,5 @@ bindsym $mod+y [instance="math"] scratchpad show; [instance="math"] move positio
 for_window [instance="math"] floating enable
 for_window [instance="math"] resize set 800 600
 for_window [instance="math"] move scratchpad
-for_window [instance="math"] border pixel 5
-#exec --no-startup-id kitty --name="math" -o font_size=20 -e python -q -i -c "import sys; sys.ps1='> '"
-exec --no-startup-id kitty --name="math" -o font_size=20 -e python -q
+for_window [instance="math"] border pixel 10
+exec --no-startup-id kitty --name="math" -o font_size=20 -e ipython -q
