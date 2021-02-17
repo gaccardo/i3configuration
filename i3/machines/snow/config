@@ -423,10 +423,18 @@ bindsym $mod+F6 exec /home/guido/.config/i3/scripts/spotify_controls/sp.sh prev
 bindsym $mod+F7 exec /home/guido/.config/i3/scripts/spotify_controls/sp.sh play
 bindsym $mod+F8 exec /home/guido/.config/i3/scripts/spotify_controls/sp.sh next
 
+# SCRATCHPADS
+bindsym $mod+u [instance="notes"] scratchpad show; [instance="notes"] move position center
+for_window [instance="notes"] floating enable
+for_window [instance="notes"] resize set 1000 800
+for_window [instance="notes"] move scratchpad
+for_window [instance="notes"] border pixel 5
+exec --no-startup-id kitty --name="notes" emacs /home/guido/Nextcloud/Documents/Notes/general.org
 
-exec --no-startup-id kitty --name="todo" -e /home/guido/.bin/notes.sh
-for_window [instance="todo"] floating enable
-for_window [instance="todo"] move [instance="todo"] scratchpad; [instance="todo"] scratchpad show; [instance="todo"] move scratchpad
-for_window [instance="todo"] resize set 1000 800; [instance="todo"] border pixel 5
-
-bindsym $mod+u [instance="todo"] scratchpad show
+bindsym $mod+y [instance="math"] scratchpad show; [instance="math"] move position center
+for_window [instance="math"] floating enable
+for_window [instance="math"] resize set 800 600
+for_window [instance="math"] move scratchpad
+for_window [instance="math"] border pixel 5
+#exec --no-startup-id kitty --name="math" -o font_size=20 -e python -q -i -c "import sys; sys.ps1='> '"
+exec --no-startup-id kitty --name="math" -o font_size=20 -e python -q
