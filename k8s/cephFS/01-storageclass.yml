@@ -1,0 +1,17 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: fast-new
+provisioner: ceph.com/rbd
+parameters:
+  monitors: 10.5.0.60:6789
+  adminId: admin
+  adminSecretName: ceph-secret
+  adminSecretNamespace: kube-system
+  pool: cephfs_data
+  userId: kube
+  userSecretName: ceph-secret-kube
+  userSecretNamespace: kube-system
+  fsType: ext4
+  imageFormat: "2"
+  imageFeatures: layering
