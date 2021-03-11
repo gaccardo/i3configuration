@@ -14,7 +14,8 @@ Plugin 'preservim/nerdcommenter'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'python.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'fugitive.vim'
+" Plugin 'fugitive.vim'
+Plugin 'tpope/vim-fugitive'
 Plugin 'nvie/vim-flake8'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -236,3 +237,8 @@ map #1 o#+BEGIN_SRC sh<Enter><Enter>#+END_SRC<esc>1ki
 nnoremap <silent><F4> :MaximizerToggle<CR>
 vnoremap <silent><F4> :MaximizerToggle<CR>gv
 inoremap <silent><F4> <C-o>:MaximizerToggle<CR>
+
+" Fugitive
+nmap <leader>gs :G<CR>
+nmap <leader>gh :diffget //3<CR>
+nmap <leader>gu :diffget //2<CR>
