@@ -1,0 +1,58 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: nginx-pv-claim
+  namespace: starfleet
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+  storageClassName: nfs-client
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  labels:
+    name: nginx
+    app: nginx
+  namespace: starfleet
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        service: nginx
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        volumeMounts:
+        - name: nginx
+          mountPath: /nginx
+          readOnly: false
+      volumes:
+      - name: nginx
+        persistentVolumeClaim:
+          claimName: nginx-pv-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  labels:
+    service: nginx
+  namespace: starfleet
+spec:
+  selector:
+    app: nginx
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 80
