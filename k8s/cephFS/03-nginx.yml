@@ -28,3 +28,20 @@ spec:
       - name: ceph-volume
         persistentVolumeClaim:
           claimName: ceph-volume-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  namespace: starfleet
+  labels:
+    name: nginx
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 80
+    nodePort: 30080
+  selector:
+    name: registry
+  type: NodePort
