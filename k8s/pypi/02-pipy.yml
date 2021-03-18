@@ -24,10 +24,17 @@ spec:
         - name: pypi
           mountPath: /packages
           readOnly: false
+        - name: htpasswd
+          mountPath: /packages/.htpasswd
+          subPath: .htpasswd
+        args: ["-P", "/packages/.htpasswd", "-a", "update,download"]
       volumes:
       - name: pypi
         persistentVolumeClaim:
           claimName: pypi-pv-claim
+      - name: htpasswd
+        configMap:
+          name: passwd
 ---
 apiVersion: v1
 kind: Service
