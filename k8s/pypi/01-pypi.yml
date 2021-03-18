@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pypi
+  labels:
+    name: pypi
+    app: pypi
+  namespace: pypi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pypi
+  template:
+    metadata:
+      labels:
+        service: pypi
+        app: pypi
+    spec:
+      containers:
+      - name: pypi
+        image: pypiserver/pypiserver:v1.4.2
+        volumeMounts:
+        - name: pypi
+          mountPath: /packages
+          readOnly: false
+      volumes:
+      - name: pypi
+        persistentVolumeClaim:
+          claimName: pypi-pv-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pypi
+  labels:
+    service: pypi
+  namespace: pypi
+spec:
+  selector:
+    service: pypi
+  type: ClusterIP
+  ports:
+  - port: 8080
