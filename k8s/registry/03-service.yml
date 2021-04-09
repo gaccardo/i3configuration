@@ -1,0 +1,38 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: docker-registry
+  namespace: registry
+  labels:
+    app: docker-registry
+spec:
+  selector:
+    app: docker-registry
+  ports:
+  - name: http
+    port: 5000
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: registry-ingress
+  namespace: registry
+  labels:
+    version: "1.0"
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+  - host: registry.starfleet.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: docker-registry
+            port:
+              number: 5000
