@@ -39,3 +39,6 @@ set --export FZF_ALT_C_OPTS "--min-height=30"
 set fish_color_search_match --background='484848'
 
 set --export EXA_COLORS "uu=0;36:gu=0;36"
+
+# Kubect KREW
+set -gx PATH $PATH $HOME/.krew/bin
