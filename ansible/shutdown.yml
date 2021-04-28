@@ -5,10 +5,10 @@
   
     - name: shutdown vm
       shell: shutdown -h now
-      when: "{{ action }} is shutdown"
+      when: action == "shutdown"
       become: yes
 
     - name: reboot vm
       shell: shutdown -r now
-      when: "{{ action }} is reboot"
+      when: action == "reboot"
       become: yes
