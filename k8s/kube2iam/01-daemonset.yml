@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: kube2iam
+  labels:
+    app: kube2iam
+spec:
+  selector:
+    matchLabels:
+      name: kube2iam
+  template:
+    metadata:
+      labels:
+        name: kube2iam
+    spec:
+      serviceAccountName: kube2iam
+      hostNetwork: true
+      containers:
+        - image: jtblin/kube2iam:latest
+          name: kube2iam
+          args:
+            - "--base-role-arn=arn:aws:iam::782253790350:role/"
+            - "--node=$(NODE_NAME)"
+            - "--verbose"
+            - "--debug"
+          env:
+            - name: NODE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
+          ports:
+            - containerPort: 8181
+              hostPort: 8181
+              name: http
