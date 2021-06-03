@@ -82,3 +82,5 @@ alias gs="git diff --name-only | fzf --multi --ansi --preview 'git diff --color=
 # Crypto
 alias btc="/home/guido/Workspace/Personal/crypto/bitcoin.py"
 
+# Networking
+alias puip="curl 'https://api.ipify.org?format=json'"
