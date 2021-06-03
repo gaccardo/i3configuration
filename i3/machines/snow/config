@@ -306,10 +306,11 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 mode "screenshot" {
-	bindsym --release c exec scrot -d 5 -c -e "eog ~/$f"
-	bindsym e exec scrot -m -e "eog ~/$f"
-	bindsym --release s exec scrot -s -e "eog ~/$f"
-	bindsym --release u exec scrot -u -e "eog ~/$f"
+	bindsym --release c exec scrot -d 5 -c -e "eog ~/screenshots/$f"
+	bindsym e exec scrot -m -e "eog ~/screenshots/$f"
+	bindsym --release s exec scrot -s -e "eog ~/screenshots/$f"
+	bindsym --release u exec scrot -u -e "eog ~/screenshots/$f"
+	bindsym --release i exec imgur-screenshot -d 600
 	bindsym Escape mode "default"
 }
 bindsym $mod+Shift+s mode "screenshot" 
