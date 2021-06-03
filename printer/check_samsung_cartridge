@@ -1,0 +1,122 @@
+#!/bin/bash
+#
+# Nagios Plugin for checking Samsung Cartridge Informations
+#
+# Date: 17.04.2008
+# License: GNU Public License v2
+# Version: 0.1 stable
+# Written by: Philipp Deneu
+# Framework by: Christian Mies
+#
+# Contact
+# E-Mail: pdeneu@gne.de
+# Skype: derdeneu
+#
+# www.gne.de
+#
+#
+
+pluginpath="/usr/local/nagios/libexec"
+pluginname=`basename $0`
+
+while getopts "H:C:Q:w:c:" options; do
+  case $options in
+        H)hostname=$OPTARG;;
+        C)community=$OPTARG;;
+        Q)query=$OPTARG;;
+    w)warn=$OPTARG;;
+    c)crit=$OPTARG;;
+        *)
+          echo "$pluginname Help:"
+          echo "-----------------"
+          echo "-H <Hostname> : Hostname/IP of Printer "
+          echo "-C <communty> : SNMP Community. Default: public"
+          echo "-Q query : the part to query:"
+          echo "                 cyan= Cyan Toner Level "
+          echo "                 magenta= Magenta Toner Level "
+          echo "                 yellow= Yellow Toner Level "
+	  echo "		 black= Black Toner Level "
+          echo "-w <warn> : Toner Level till warning "
+          echo "-c <crit> : Toner Level till critical "
+          echo "-----------------"
+          echo "Usage: $pluginname -H <HOSTADDRESS> -C <community> -Q  -w <warn> -c <crit>"
+          exit 3
+        ;;
+  esac
+done
+
+if [ -z $community ]; then
+        community=public;
+fi;
+
+SNMPWALK_BIN='/usr/bin/snmpwalk'
+CYAN_LEVEL='1.3.6.1.2.1.43.11.1.1.9.1.1' #CYAN Level
+YELLOW_LEVEL='1.3.6.1.2.1.43.11.1.1.9.1.3' #YELLOW Level
+MAGENTA_LEVEL='1.3.6.1.2.1.43.11.1.1.9.1.2' #MAGENTA Level
+BLACK_LEVEL='1.3.6.1.2.1.43.11.1.1.9.1.2' #BLACK Level
+
+case $query in
+        cyan)
+                CYANCOLOR=`$SNMPWALK_BIN -v 1 -c $community -On $hostname $CYAN_LEVEL | awk '{print $4}' | tr -d '\n'`;
+                if [ $CYANCOLOR -le $crit ]; then
+                        echo "CRITICAL: Toner Cyan (Bestell-Nr.: CLP-C600A) - Resttoner: $CYANCOLOR%|CYAN=$CYANCOLOR%;$warn;$crit;;"
+                        exit 2
+                fi;
+                if [ $CYANCOLOR -le $warn ] && [ $CYANCOLOR -gt $crit ]; then
+                                echo "WARNING: Toner Cyan (Bestell-Nr.: CLP-C600A) - Resttoner: $CYANCOLOR%|CYAN=$CYANCOLOR%;$warn;$crit;;"
+                                exit 1
+                fi;
+                echo "OK: Toner Cyan (Bestell-Nr.: CLP-C600A) - Resttoner: $CYANCOLOR%|CYAN=$CYANCOLOR%;$warn;$crit;;"
+                exit 0
+        ;;
+
+        yellow)
+                YELLOWCOLOR=`$SNMPWALK_BIN -v 1 -c $community -On $hostname $YELLOW_LEVEL | awk '{print $4}' | tr -d '\n'`;
+                if [ $YELLOWCOLOR -le $crit ]; then
+                        echo "CRITICAL: Toner Yellow (Bestell-Nr.: CLP-Y600A) - Resttoner: $YELLOWCOLOR%|YELLOW=$YELLOWCOLOR%;$warn;$crit;;"
+                        exit 2
+                fi;
+                if [ $YELLOWCOLOR -le $warn ] && [ $YELLOWCOLOR -gt $crit ]; then
+                                echo  "WARNING: Toner Yellow (Bestell-Nr.: CLP-Y600A) - Resttoner: $YELLOWCOLOR%|YELLOW=$YELLOWCOLOR%;$warn;$crit;;"
+                                exit 1
+                fi;
+                echo "OK: Toner Yellow (Bestell-Nr.: CLP-Y600A) - Resttoner: $YELLOWCOLOR%|YELLOW=$YELLOWCOLOR%;$warn;$crit;;"
+                exit 0
+        ;;
+
+        magenta)
+                MAGENTACOLOR=`$SNMPWALK_BIN -v 1 -c $community -On $hostname $MAGENTA_LEVEL | awk '{print $4}' | tr -d '\n'`;
+                if [ $MAGENTACOLOR -le $crit ]; then
+                        echo "CRITICAL: Toner Magenta (Bestell-Nr.: CLP-M600A) - Resttoner: $MAGENTACOLOR%|MAGENTA=$MAGENTACOLOR%;$warn;$crit;;"
+                        exit 2
+                fi;
+                if [ $MAGENTACOLOR -le $warn ] && [ $MAGENTACOLOR -gt $crit ]; then
+                                echo "WARNING: Toner Magenta (Bestell-Nr.: CLP-M600A) - Resttoner: $MAGENTACOLOR%|MAGENTA=$MAGENTACOLOR%;$warn;$crit;;"
+                                exit 1
+                fi;
+                echo "OK: Toner Magenta (Bestell-Nr.: CLP-M600A) - Resttoner: $MAGENTACOLOR%|MAGENTA=$MAGENTACOLOR%;$warn;$crit;;"
+                exit 0
+        ;;
+
+        black)
+                BLACKCOLOR=`$SNMPWALK_BIN -v 1 -c $community -On $hostname $BLACK_LEVEL | awk '{print $4}' | tr -d '\n'`;
+                if [ $BLACKCOLOR -le $crit ]; then
+                        echo "CRITICAL: Toner Black (Bestell-Nr.: CLP-K600A) - Resttoner: $BLACKCOLOR%|BLACK=$BLACKCOLOR%;$warn;$crit;;"
+                        exit 2
+                fi;
+                if [ $BLACKCOLOR -le $warn ] && [ $BLACKCOLOR -gt $crit ]; then
+                                echo "WARNING: Toner Black (Bestell-Nr.: CLP-K600A) - Resttoner: $BLACKCOLOR%|BLACK=$BLACKCOLOR%;$warn;$crit;;"
+                                exit 1
+                fi;
+                echo "OK: Toner Black (Bestell-Nr.: CLP-K600A) - Resttoner: $BLACKCOLOR%|BLACK=$BLACKCOLOR%;$warn;$crit;;"
+                exit 0
+        ;;
+
+
+        *)
+                echo "UNKNOWN: not implemented. Use $pluginname -h"
+                exit 3
+        ;;
+
+
+esac
