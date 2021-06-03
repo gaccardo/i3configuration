@@ -35,6 +35,11 @@ Host backups01
 	HostName 10.10.156.105
 	User guido
 
+Host graviton01
+	HostName 10.10.156.103
+	User ec2-user
+	IdentityFile ~/.keys/bridge_development.pem
+
 ## DEVELOPMENT
 
 Host devflower01
