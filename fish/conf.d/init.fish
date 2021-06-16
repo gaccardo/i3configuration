@@ -42,3 +42,6 @@ set --export EXA_COLORS "uu=0;36:gu=0;36"
 
 # Kubect KREW
 set -gx PATH $PATH $HOME/.krew/bin
+
+# jummm
+#icat ~/Pictures/Usefull/catslady.png
