@@ -354,20 +354,20 @@ bar {
        }
        tray_output DVI-D-0
 }
-bar {
-       output DP-1
-       status_command py3status --config ~/.config/i3/i3status/i3status_right_bottom.conf --include /home/guido/.config/i3/pystatus
-       position bottom
-       colors {
-             background #262626
-             focused_workspace  #928374 #262626 #d5c4a1
-             active_workspace   #424242 #262626 #d5c4a1
-             inactive_workspace #262626 #262626 #888888
-             urgent_workspace   #2f343a #900000 #ffffff
-             binding_mode       #2f343a #928374 #55ff00
-       }
-       tray_output DVI-D-0
-}
+#bar {
+#       output DP-1
+#       status_command py3status --config ~/.config/i3/i3status/i3status_right_bottom.conf --include /home/guido/.config/i3/pystatus
+#       position bottom
+#       colors {
+#             background #262626
+#             focused_workspace  #928374 #262626 #d5c4a1
+#             active_workspace   #424242 #262626 #d5c4a1
+#             inactive_workspace #262626 #262626 #888888
+#             urgent_workspace   #2f343a #900000 #ffffff
+#             binding_mode       #2f343a #928374 #55ff00
+#       }
+#       tray_output DVI-D-0
+#}
 
 bar {
        output DVI-D-0
