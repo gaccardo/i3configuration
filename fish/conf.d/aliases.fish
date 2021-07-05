@@ -1,7 +1,7 @@
 # My Aliases
 
 # AWS
-alias aws="$HOME/.pyenv/versions/awscli/bin/aws"
+# alias aws="$HOME/.pyenv/versions/awscli/bin/aws"
 
 # Kubernetes
 alias awx="awx | fzf --ansi | xargs -I {} awx {}"
@@ -16,6 +16,7 @@ alias ct="ctop -a"
 alias kdiff="kitty +kitten diff"
 alias icat="kitty +kitten icat --align left"
 alias fcat="fzf --preview 'cat {}'"
+alias kw="watch -n 5 kubectl get"
 
 function k8s
   set k8s_status "off"
