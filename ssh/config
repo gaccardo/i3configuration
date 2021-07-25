@@ -367,7 +367,7 @@ Host gaw-frontend
     Port 2222
     User guido
 
-Host vpngw01
+Host vpngw
     HostName 10.10.13.201
     User guido
 
