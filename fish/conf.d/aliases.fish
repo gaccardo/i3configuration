@@ -17,6 +17,10 @@ alias kdiff="kitty +kitten diff"
 alias icat="kitty +kitten icat --align left"
 alias fcat="fzf --preview 'cat {}'"
 alias kw="watch -n 5 kubectl get"
+alias bat="bat --pager=never --theme gruvbox-dark -p"
+alias batf="bat --pager=never --theme gruvbox-dark --style='full'"
+alias batn="bat --pager=never --theme gruvbox-dark --style='numbers'"
+
 
 function k8s
   set k8s_status "off"
