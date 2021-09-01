@@ -20,6 +20,8 @@ alias kw="watch -n 5 kubectl get"
 alias bat="bat --pager=never --theme gruvbox-dark -p"
 alias batf="bat --pager=never --theme gruvbox-dark --style='full'"
 alias batn="bat --pager=never --theme gruvbox-dark --style='numbers'"
+alias busylaunch="kubectl run -i -t busybox --image=busybox:1.28 --restart=Never"
+alias kpo-nodes='kubectl get pod -o=custom-columns=NAME:.metadata.name,STATUS:.status.phase,NODE:.spec.nodeName --all-namespaces'
 
 
 function k8s
