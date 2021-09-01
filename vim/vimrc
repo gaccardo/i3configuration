@@ -38,6 +38,7 @@ Plugin 'justinmk/vim-sneak'
 " Plugin 'mattn/vim-gist'
 Plugin 'szw/vim-maximizer'
 Plugin 'wlemuel/vim-tldr'
+Plugin 'vim-syntastic/syntastic'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
