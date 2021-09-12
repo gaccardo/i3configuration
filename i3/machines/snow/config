@@ -19,7 +19,7 @@ bindsym $mod+Return exec TERMINAL="kitty" i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start (a program launcher)
-bindsym $mod+space exec rofi -show run -config $HOME/.config/i3/rofi/rofi.conf -font "Envy Code R 12"
+bindsym $mod+space exec rofi -show run -theme /usr/share/rofi/themes/gruvbox-dark.rasi -font "Envy Code R 12"
 bindsym $mod+Shift+space exec rofi -ssh-command "alacritty -e /home/guido/.ssh/client {host}" -show ssh -parse-known-hosts -config $HOME/.config/i3/rofi/rofi.conf -parse-hosts
 
 # change focus
