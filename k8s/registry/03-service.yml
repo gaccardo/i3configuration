@@ -17,22 +17,17 @@ kind: Ingress
 metadata:
   name: registry-ingress
   namespace: registry
-  labels:
-    version: "1.0"
   annotations:
-    nginx.ingress.kubernetes.io/proxy-body-size: "0"
-    nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
-    nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
-    kubernetes.io/ingress.class: "nginx"
+    kubernetes.io/ingress.class: ingress-class-2
 spec:
   rules:
-  - host: registry.starfleet.local
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: docker-registry
-            port:
-              number: 5000
+    - host: registry.starfleet.local
+      http:
+        paths:
+          - backend:
+              service:
+                name: docker-registry
+                port:
+                  number: 5000
+            path: /
+            pathType: Prefix
