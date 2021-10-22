@@ -375,3 +375,17 @@ Host vpngw02
     HostName 10.10.80.10
     User guido
     ProxyJump vpngw01
+
+Host b2bprod
+    HostName 10.10.1.190
+    User guido
+    PubkeyAcceptedKeyTypes +ssh-rsa
+    HostkeyAlgorithms +ssh-rsa
+    IdentityFile ~/.ssh/id_rsa
+
+Host b2bstg
+    HostName 10.10.1.107
+    User guido
+    PubkeyAcceptedKeyTypes +ssh-rsa
+    HostkeyAlgorithms +ssh-rsa
+    IdentityFile ~/.ssh/id_rsa
