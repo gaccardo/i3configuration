@@ -23,13 +23,10 @@ Host monitoring01
 	HostName 10.10.156.200
 	User guido
 
-Host vpn01
-	HostName 10.10.13.4
-	User guido
-
-Host vpnmfa01
+Host vpngw
 	HostName 10.10.13.201
 	User guido
+    Port 22429
 
 Host backups01
 	HostName 10.10.156.105
@@ -303,10 +300,6 @@ Host proddwh01
 	HostName 10.10.20.100
 	User guido
 
-Host prodcountsystem01
-	HostName 10.10.1.57
-	User guido
-
 Host prodccmsf01
 	HostName 10.10.1.91
 	User guido
@@ -382,6 +375,13 @@ Host b2bprod
     PubkeyAcceptedKeyTypes +ssh-rsa
     HostkeyAlgorithms +ssh-rsa
     IdentityFile ~/.ssh/id_rsa
+
+Host prodcountsystem01
+	HostName 10.10.1.57
+	User centos
+    PubkeyAcceptedKeyTypes +ssh-rsa
+    HostkeyAlgorithms +ssh-rsa
+    IdentityFile ~/.keys/bridge.pem
 
 Host b2bstg
     HostName 10.10.1.107
