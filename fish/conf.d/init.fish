@@ -51,3 +51,6 @@ complete --command aws --no-files --arguments '(begin; set --local --export COMP
 
 # call codeartifact
 bash $HOME/.bin/ca.sh
+
+# krew
+set -gx PATH $PATH $HOME/.krew/bin
