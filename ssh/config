@@ -279,6 +279,9 @@ Host prodordercapture01
 Host prodb2b01
 	HostName 10.10.1.190
 	User guido
+    PubkeyAcceptedKeyTypes +ssh-rsa
+    HostkeyAlgorithms +ssh-rsa
+    IdentityFile ~/.keys/bridge.pem
 
 Host prodlocationformattingcreative01
 	HostName 10.10.1.76
