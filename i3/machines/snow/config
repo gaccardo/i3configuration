@@ -164,7 +164,7 @@ bindsym $mod+$mod2+c workspace $wsconfig
 
 bindsym $mod+$mod2+k workspace $wskeepassxc 
 
-bindsym $mod+$mod2+n workspace $wsjail
+bindsym $mod+$mod2+j workspace $wsjails
 
 # switch without ws number
 bindsym $mod+Tab workspace back_and_forth
@@ -222,7 +222,7 @@ workspace $wsconfig output $monit_two
 
 workspace $wskeepassxc output $monit_two
 
-workspace $wsjail output $monit_two
+workspace $wsjails output $monit_two
 
 # move focused container to workspace
 
@@ -251,7 +251,7 @@ bindsym $mod+$mod2+Shift+9 move container to workspace $ws19
 bindsym $mod+$mod2+Shift+0 move container to workspace $ws20
 bindsym $mod+$mod2+Shift+c move container to workspace $wsconfig
 bindsym $mod+$mod2+Shift+k move container to workspace $wskeepassxc
-bindsym $mod+$mod2+Shift+n move container to workspace $wsjail
+bindsym $mod+$mod2+Shift+j move container to workspace $wsjails
 
 # left screen
 bindsym $mod+Control+Shift+0 move container to workspace $ws30
