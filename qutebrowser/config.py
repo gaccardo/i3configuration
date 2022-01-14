@@ -30,3 +30,5 @@ c.fonts.default_family = "Envy Code R"
 config.bind("xb", "config-cycle statusbar.hide")
 config.bind("xt", "config-cycle tabs.show always switching")
 config.bind("xx", "config-cycle statusbar.hide ;; config-cycle tabs.show always switching")
+
+config.load_autoconfig()
