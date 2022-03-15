@@ -333,6 +333,9 @@ Host prodlocationformatting03
 
 Host proddatalistsoutbound01
 	HostName 10.10.1.203
+    PubkeyAcceptedKeyTypes +ssh-rsa
+    HostkeyAlgorithms +ssh-rsa
+    IdentityFile ~/.ssh/id_rsa
 	User guido
 
 Host proddatalistsinboundverifier01

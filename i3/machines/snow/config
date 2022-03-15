@@ -307,10 +307,10 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 mode "screenshot" {
-	bindsym --release c exec scrot -d 5 -c -e "eog ~/screenshots/$f"
-	bindsym e exec scrot -m -e "eog ~/screenshots/$f"
-	bindsym --release s exec scrot -s -e "eog ~/screenshots/$f"
-	bindsym --release u exec scrot -u -e "eog ~/screenshots/$f"
+	bindsym --release c exec scrot -d 5 -c -e "eog ~/$f"
+	bindsym e exec scrot -m -e "eog ~/$f"
+	bindsym --release s exec scrot -s -e "eog ~/$f"
+	bindsym --release u exec scrot -u -e "eog ~/$f"
 	bindsym --release i exec imgur-screenshot -d 600
 	bindsym Escape mode "default"
 }
@@ -320,19 +320,15 @@ mode "launcher" {
 	bindsym b exec brave-browser
 	bindsym f exec firefox -P
 	bindsym q exec qutebrowser
-   bindsym p exec firefox --private-window
-   bindsym g exec fgfs --launcher
-   bindsym j exec /home/guido/.bin/joplin
-   bindsym l exec /home/guido/.bin/lens
-   bindsym s exec spotify
+    bindsym p exec firefox --private-window
 	bindsym Escape mode "default"
 }
 bindsym $mod+o mode "launcher"
 
 mode "firelauncher" {
-   bindsym f exec firejail --private=/home/guido/Workspace/Personal/netjail/homes/firefox/ firefox --private
-   bindsym p exec firejail firefox --private
-   bindsym d exec firejail --private firefox --private
+    bindsym f exec firejail --private=/home/guido/Workspace/Personal/netjail/homes/firefox/ firefox --private
+    bindsym p exec firejail firefox --private
+    bindsym d exec firejail --private firefox --private
 	bindsym Escape mode "default"
 }
 bindsym $mod+i mode "firelauncher"
@@ -447,3 +443,10 @@ for_window [instance="math"] resize set 800 600
 for_window [instance="math"] move scratchpad
 for_window [instance="math"] border pixel 10
 exec --no-startup-id kitty --name="math" -o font_size=20 -e ipython -q
+
+#bindsym $mod+b [instance="bridge"] scratchpad show; [instance="bridge"] move position center
+#for_window [instance="bridge"] floating enable
+#for_window [instance="bridge"] resize set 1000 800
+#for_window [instance="bridge"] move scratchpad
+#for_window [instance="bridge"] border pixel 5
+#exec --no-startup-id kitty --name="bridge" bash #pyenv activate devops-3.9.10
