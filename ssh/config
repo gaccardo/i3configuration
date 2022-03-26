@@ -395,3 +395,10 @@ Host b2bstg
     PubkeyAcceptedKeyTypes +ssh-rsa
     HostkeyAlgorithms +ssh-rsa
     IdentityFile ~/.ssh/id_rsa
+
+Host wordpress02-motrixi
+ HostName 54.84.128.59
+ Port 22
+ User ubuntu
+ ProxyJump vpngw
+ IdentityFile ~/.keys/domain_manager.pem
