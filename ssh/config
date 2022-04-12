@@ -389,6 +389,12 @@ Host prodcountsystem01
     HostkeyAlgorithms +ssh-rsa
     IdentityFile ~/.keys/bridge.pem
 
+Host charles01
+    HostName 10.0.151.208
+    User ubuntu
+    PubkeyAcceptedKeyTypes +ssh-rsa
+    IdentityFile ~/.keys/oneaudience_production.pem
+
 Host b2bstg
     HostName 10.10.1.107
     User guido
