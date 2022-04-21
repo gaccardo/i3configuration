@@ -375,6 +375,17 @@ Host vpngw02
     User guido
     ProxyJump vpngw01
 
+Host dataops01
+    HostName 10.0.2.32
+    User guido
+
+Host satori
+    Hostname services2.satorisoftware.com
+    User bridgemarketing
+    PubkeyAcceptedKeyTypes +ssh-rsa
+    HostkeyAlgorithms +ssh-rsa
+    ProxyJump dataops01
+
 Host b2bprod
     HostName 10.10.1.190
     User guido
