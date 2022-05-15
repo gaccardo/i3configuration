@@ -419,3 +419,32 @@ Host wordpress02-motrixi
  User ubuntu
  ProxyJump vpngw
  IdentityFile ~/.keys/domain_manager.pem
+
+Host freeipa-server
+  Hostname 3.215.143.228
+  Port 22
+  User ec2-user
+  IdentityFile ~/.keys/bridge_devops.pem
+
+Host freeipa-replica
+  Hostname 54.236.182.202                                                                                                                                                                     
+  Port 22
+  User ec2-user
+  IdentityFile ~/.keys/bridge_devops.pem
+
+Host freeipa-client-al2
+  Hostname 10.11.13.125
+  Port 22
+  User guido.accardo
+  #User ec2-user
+  #IdentityFile ~/.keys/bridge_devops.pem
+  ProxyJump freeipa-server
+
+Host freeipa-client-ubuntu
+  Hostname 10.11.12.76
+  Port 22
+  #User ubuntu
+  User guido.accardo
+  #IdentityFile ~/.keys/bridge_devops.pem
+  # ProxyJump freeipa-server
+  ProxyJump freeipa-replica
