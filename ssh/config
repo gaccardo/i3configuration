@@ -253,14 +253,26 @@ Host prodcorporate01
 	User guido
 
 Host prodlocationformatting4
+    PubkeyAcceptedKeyTypes +ssh-rsa
+    HostkeyAlgorithms +ssh-rsa
+    IdentityFile ~/.ssh/id_rsa
+	User guido
 	HostName 10.10.1.26
 	User guido
 
 Host proddatalistsinbound32
+    PubkeyAcceptedKeyTypes +ssh-rsa
+    HostkeyAlgorithms +ssh-rsa
+    IdentityFile ~/.ssh/id_rsa
+	User guido
 	HostName 10.10.1.131
 	User guido
 
 Host proddatalistsoutbound2
+    PubkeyAcceptedKeyTypes +ssh-rsa
+    HostkeyAlgorithms +ssh-rsa
+    IdentityFile ~/.ssh/id_rsa
+	User guido
 	HostName 10.10.1.252
 	User guido
 
@@ -289,6 +301,10 @@ Host prodlocationformattingcreative01
 
 Host proddatalistsoutband4
 	HostName 10.10.1.247
+	User guido
+    PubkeyAcceptedKeyTypes +ssh-rsa
+    HostkeyAlgorithms +ssh-rsa
+    IdentityFile ~/.ssh/id_rsa
 	User guido
 
 Host proddatautilsbq01
@@ -341,9 +357,17 @@ Host proddatalistsoutbound01
 Host proddatalistsinboundverifier01
 	HostName 10.10.1.63
 	User guido
+    PubkeyAcceptedKeyTypes +ssh-rsa
+    HostkeyAlgorithms +ssh-rsa
+    IdentityFile ~/.ssh/id_rsa
+	User guido
 
 Host proddynamiccountallocation01
 	HostName 10.10.1.71
+	User guido
+    PubkeyAcceptedKeyTypes +ssh-rsa
+    HostkeyAlgorithms +ssh-rsa
+    IdentityFile ~/.ssh/id_rsa
 	User guido
 
 Host prodportal01
