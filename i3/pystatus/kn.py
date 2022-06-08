@@ -7,7 +7,7 @@ class Py3status:
     def kn(self):
         out = subprocess.check_output(
             [
-                'kubectl',
+                '/usr/bin/kubectl',
                 'config',
                 'view',
                 '--minify',
