@@ -1,12 +1,10 @@
 #!/bin/bash
-pactl set-sink-volume 1 +5%
-pactl set-sink-volume 2 +5%
-pactl set-sink-volume 3 +5%
-pactl set-sink-volume 4 +5%
-pactl set-sink-volume 5 +5%
-pactl set-sink-volume 6 +5%
-pactl set-sink-volume 7 +5%
+sinks=$(pactl list | grep "Sink #" | awk '{print $2}' | sed 's/#//')
+
+for sink in $sinks;
+do
+    pactl set-sink-volume $sink +5%
+done
 
 VOLUME=`pactl list sinks | grep '^[[:space:]]Volume:' | head -n $(( $SINK + 1 )) | tail -n 1 | sed -e 's,.* \([0-9][0-9]*\)%.*,\1,'`
-
 notify-send -t 350 "Volume control" "Volume: $VOLUME %"
