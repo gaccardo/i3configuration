@@ -25,7 +25,6 @@ Host monitoring01
 
 Host vpngw
 	HostName 10.10.13.201
-	User guido
     Port 22429
 
 Host backups01
