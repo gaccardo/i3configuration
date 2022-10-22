@@ -81,7 +81,7 @@ nmap <C-n> :NERDTreeToggle<CR>
 nmap <F8> :TagbarToggle<CR>
 nmap <F5> :GitGutterToggle<CR>
 nmap <F6> :UndotreeToggle<CR>
-nmap <F7> :call ShowLongLines()<CR>
+nmap <F9> :call ShowLongLines()<CR>
 nmap <leader><F7> :call ClearLongLines()<CR>
 
 " FZF files
