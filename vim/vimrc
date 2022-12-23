@@ -10,7 +10,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'preservim/nerdtree'
-Plugin 'preservim/nerdcommenter'
+" Plugin 'preservim/nerdcommenter'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'python.vim'
 Plugin 'majutsushi/tagbar'
@@ -21,7 +21,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'ap/vim-css-color'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'mbbill/undotree'
+" Plugin 'mbbill/undotree'
 " Plugin 'mattn/webapi-vim'
 " Plugin 'dyng/ctrlsf.vim'
 " Plugin 'jeetsukumaran/vim-buffergator'
@@ -29,7 +29,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'etdev/vim-hexcolor'
 Plugin 'morhetz/gruvbox'
 " Plugin 'jceb/vim-orgmode'
-Plugin 'tpope/vim-speeddating'
+" Plugin 'tpope/vim-speeddating'
 " Plugin 'mattn/calendar-vim'
 " Plugin 'inkarkat/vim-SyntaxRange'
 " Plugin 'justinmk/vim-sneak'
@@ -54,14 +54,28 @@ filetype plugin indent on    " required
 "
 " StatusLine
 
+let g:toggle_status=0
+
 function! ShowLongLines()
   let w:m1=matchadd('Search', '\%<81v.\%>77v', -1)
   let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+  let g:toggle_status=1
 endfunction
 
 function! ClearLongLines()
   call matchdelete(w:m1)
   call matchdelete(w:m2)
+  let g:toggle_status=0
+endfunction
+
+function! ToggleLongLines()
+  if g:toggle_status == 1
+    echo "clear long lines"
+    call ClearLongLines()
+  elseif g:toggle_status == 0
+    echo "show long lines"
+    call ShowLongLines()
+  endif
 endfunction
 
 function! GitBranch()
@@ -81,7 +95,7 @@ nmap <C-n> :NERDTreeToggle<CR>
 nmap <F8> :TagbarToggle<CR>
 nmap <F5> :GitGutterToggle<CR>
 nmap <F6> :UndotreeToggle<CR>
-nmap <F9> :call ShowLongLines()<CR>
+nmap <F9> :call ToggleLongLines()<CR>
 nmap <leader><F7> :call ClearLongLines()<CR>
 
 " FZF files

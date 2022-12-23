@@ -89,6 +89,11 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+# screens
+set $monit_two DP-5
+set $monit_zero DVI-D-0
+set $monit_one HDMI-0
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -126,7 +131,7 @@ set $wsconfig "conf"
 
 set $wskeepassxc "kpass"
 
-set $wsjails "jails"
+set $wsnotes "notes"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -164,7 +169,7 @@ bindsym $mod+$mod2+c workspace $wsconfig
 
 bindsym $mod+$mod2+k workspace $wskeepassxc 
 
-bindsym $mod+$mod2+j workspace $wsjails
+bindsym $mod+n workspace $wsnotes
 
 # switch without ws number
 bindsym $mod+Tab workspace back_and_forth
@@ -176,9 +181,10 @@ bindsym $mod+Control+Right workspace next
 #set $monit_one DVI-D-0
 #set $monit_two HDMI-0
 
-set $monit_two DP-1
-set $monit_one DVI-D-0
-set $monit_zero HDMI-0
+#set $monit_two DP-1
+#set $monit_one DVI-D-0
+#set $monit_zero HDMI-0
+
 
 # assign workspaces to screens
 
@@ -222,7 +228,7 @@ workspace $wsconfig output $monit_two
 
 workspace $wskeepassxc output $monit_two
 
-workspace $wsjails output $monit_two
+workspace $wsjails output $monit_one
 
 # move focused container to workspace
 
@@ -251,7 +257,7 @@ bindsym $mod+$mod2+Shift+9 move container to workspace $ws19
 bindsym $mod+$mod2+Shift+0 move container to workspace $ws20
 bindsym $mod+$mod2+Shift+c move container to workspace $wsconfig
 bindsym $mod+$mod2+Shift+k move container to workspace $wskeepassxc
-bindsym $mod+$mod2+Shift+j move container to workspace $wsjails
+bindsym $mod+$mod2+Shift+n move container to workspace $wsnotes
 
 # left screen
 bindsym $mod+Control+Shift+0 move container to workspace $ws30
@@ -339,7 +345,7 @@ bindsym $mod+i mode "firelauncher"
 
 # right screen
 bar {
-       output DP-1
+       output DP-5
        status_command py3status --config ~/.config/i3/i3status/i3status_left.conf --include /home/guido/.config/i3/pystatus
        position top
        colors {
@@ -419,6 +425,7 @@ for_window [class="Spotify"] border none
 for_window [class="^.*"] border pixel 1
 for_window [class="TelegramDesktop"] move to workspace $ws20
 for_window [class="keepassxc"] move to workspace $wskeepassxc
+for_window [class="obsidian"] move to workspace $wsnotes
 
 # MEDIA KEYS
 bindsym $mod+F11 exec /home/guido/.config/i3/scripts/vol_up.sh

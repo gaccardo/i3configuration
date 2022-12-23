@@ -94,3 +94,7 @@ alias btc="/home/guido/Workspace/Personal/crypto/bitcoin.py"
 
 # Networking
 alias puip="curl 'https://api.ipify.org?format=json'"
+
+# clipboard
+alias this_path="pwd | xsel --input"
+alias path_here="cd (xclip -out)"
