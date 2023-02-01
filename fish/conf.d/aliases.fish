@@ -98,3 +98,6 @@ alias puip="curl 'https://api.ipify.org?format=json'"
 # clipboard
 alias this_path="pwd | xsel --input"
 alias path_here="cd (xclip -out)"
+
+# bridge
+alias bridgecf="/home/guido/.pyenv/versions/3.9.10/envs/devops-3.9.10/bin/bridgecf"
