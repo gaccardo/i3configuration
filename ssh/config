@@ -63,6 +63,9 @@ Host devftp01
 	User guido
 
 Host devcount01
+    PubkeyAcceptedKeyTypes +ssh-rsa
+    HostkeyAlgorithms +ssh-rsa
+    IdentityFile ~/.ssh/id_rsa
 	HostName 10.10.1.20
 	User guido
 
@@ -276,8 +279,11 @@ Host proddatalistsoutbound2
 	User guido
 
 Host prodowmnmagement01
+    PubkeyAcceptedKeyTypes +ssh-rsa
+    HostkeyAlgorithms +ssh-rsa
 	HostName 10.10.1.163
-	User guido
+    IdentityFile ~/.keys/bridge.pem
+	User centos
 
 Host prodev01
 	HostName 10.10.70.150
