@@ -289,6 +289,10 @@ Host prodev01
 	HostName 10.10.70.150
 	User guido
 
+Host starbase003
+    HostName 191.96.251.15
+    User guido
+
 Host prodordercapture01
 	HostName 10.10.1.187
 	User guido
