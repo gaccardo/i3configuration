@@ -44,7 +44,11 @@ set --export EXA_COLORS "uu=0;36:gu=0;36"
 set -gx PATH $PATH $HOME/.krew/bin
 
 # jummm
-#icat ~/Pictures/Usefull/catslady.png
+set NUMBER (random 1 100)
+if test "$NUMBER" -le 20
+    icat ~/Pictures/Usefull/catslady.png
+end
+set -e NUMBER
 
 # Enable AWS CLI autocompletion: github.com/aws/aws-cli/issues/1079
 complete --command aws --no-files --arguments '(begin; set --local --export COMP_SHELL fish; set --local --export COMP_LINE (commandline); aws_completer | sed \'s/ $//\'; end)'
