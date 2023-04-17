@@ -399,6 +399,16 @@ Host gaw-frontend
     Port 2222
     User guido
 
+Host gaw-backend-stg
+    HostName 10.2.250.169
+    User guido
+    Port 2222
+
+Host gaw-frontend-stg
+    HostName 10.2.228.28
+    Port 2222
+    User guido
+
 Host vpngw
     HostName 10.10.13.201
     User guido

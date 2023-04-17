@@ -211,6 +211,7 @@ workspace $ws7 output $monit_one
 workspace $ws8 output $monit_one
 workspace $ws9 output $monit_one
 workspace $ws10 output $monit_one
+workspace $wsnotes output $monit_one
 
 # right screen
 workspace $ws11 output $monit_two
@@ -443,7 +444,7 @@ for_window [instance="notes"] floating enable
 for_window [instance="notes"] resize set 1000 800
 for_window [instance="notes"] move scratchpad
 for_window [instance="notes"] border pixel 5
-exec --no-startup-id kitty --name="notes" emacs /home/guido/Nextcloud/Documents/Notes/general.org
+exec --no-startup-id kitty --name="notes" emacs /home/guido/Nextcloud/Documents/Notes/general_2023.org
 
 bindsym $mod+y [instance="math"] scratchpad show; [instance="math"] move position center
 for_window [instance="math"] floating enable

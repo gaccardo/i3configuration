@@ -3,17 +3,22 @@
 ;; easy and fast way to load file       :: M-x load-file  RET
 ;;                                      ~/.emacs.d/init.el RET
 ;; Disable tool-bar, menu-bar, scroll bar
-;;;; (tool-bar-mode -1)
+(tool-bar-mode -1)
 ;; Splash Screen
 (setq inhibit-splash-screen t
       initial-scratch-message nil
       initial-major-mode 'org-mode)
 (menu-bar-mode -1)
-;;(scroll-bar-mode -1)
+(scroll-bar-mode -1)
+
 ;; Do not show the startup screen.
 (setq inhibit-startup-message t)
+
 ;; Highlight current line.
 (global-hl-line-mode t)
+
+(setq visible-bell t)
+(setq ring-bell-function 'ignore)
 ;; =============================
 ;; disable C-z emacs' suspension
 (global-set-key (kbd "C-z") 'nil)
@@ -57,7 +62,7 @@
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
-(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/"))
+(add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/"))
 (package-initialize)
 ;; Install 'use-package' if necessary
 (unless (package-installed-p 'use-package)
@@ -93,7 +98,7 @@
   :config
   (customize-set-variable 'frame-background-mode 'dark)
   ;;  (load-theme 'doom-city-lights t))
-  (load-theme 'doom-peacock t))
+  (load-theme 'doom-gruvbox t))
 ;;  (load-theme 'doom-molokai t))
 ;; powerline
 (use-package powerline
@@ -185,18 +190,18 @@
    (lisp . t)
    ))
 (require 'org)
-(setq org-confirm-babel-evaluate nil)
-;; The last variable removes the annoying "Do you want to execute"
-;; your code when you type: C-c C-c
-(setq org-confirm-babel-evaluate nil)
-;; define pasth for org-capture file
-(define-key global-map "\C-cc" 'org-capture)
-(setq org-capture-templates
- '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Tasks")
-	"* TODO %?\n  %i\n  %a")
-   ("j" "Journal" entry (file+olp+datetree "~/org/journal.org")
-	"* %?\nEntered on %U\n  %i\n  %a")))
-
+;;(setq org-confirm-babel-evaluate nil)
+;;;; The last variable removes the annoying "Do you want to execute"
+;;;; your code when you type: C-c C-c
+;;(setq org-confirm-babel-evaluate nil)
+;;;; define pasth for org-capture file
+;;(define-key global-map "\C-cc" 'org-capture)
+;;(setq org-capture-templates
+;; '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Tasks")
+;;	"* TODO %?\n  %i\n  %a")
+;;   ("j" "Journal" entry (file+olp+datetree "~/org/journal.org")
+;;	"* %?\nEntered on %U\n  %i\n  %a")))
+;;
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
