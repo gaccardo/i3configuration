@@ -22,7 +22,10 @@ alias batf="bat --pager=never --theme gruvbox-dark --style='full'"
 alias batn="bat --pager=never --theme gruvbox-dark --style='numbers'"
 alias busylaunch="kubectl run -i -t busybox --image=busybox:1.28 --restart=Never"
 alias kpo-nodes='kubectl get pod -o=custom-columns=NAME:.metadata.name,STATUS:.status.phase,NODE:.spec.nodeName --all-namespaces'
-alias ecr-ling='aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 782253790350.dkr.ecr.us-east-1.amazonaws.com'
+
+alias ecr-bsp='aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 782253790350.dkr.ecr.us-east-1.amazonaws.com'
+alias ecr-1a='aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 511460813195.dkr.ecr.us-east-1.amazonaws.com'
+
 alias dst="dunstctl set-paused true; echo 'dunst paused'"
 alias dsf="dunstctl set-paused false; echo 'dunst enabled'"
 
