@@ -19,7 +19,7 @@ bindsym $mod+Return exec TERMINAL="kitty" i3-sensible-terminal
 bindsym $mod+Shift+q kill
 
 # start (a program launcher)
-bindsym $mod+space exec rofi -show run -theme /usr/share/rofi/themes/gruvbox-dark.rasi -font "Envy Code R 12"
+bindsym $mod+space exec rofi -show-icons -show run -theme /usr/share/rofi/themes/gruvbox-dark.rasi -font "Envy Code R 12"
 bindsym $mod+Shift+space exec rofi -ssh-command "alacritty -e /home/guido/.ssh/client {host}" -show ssh -parse-known-hosts -config $HOME/.config/i3/rofi/rofi.conf -parse-hosts
 
 # change focus
@@ -74,7 +74,8 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # launch nautilus
-bindsym $mod+d exec GTK_THEME=Adwaita:dark nautilus
+#bindsym $mod+d exec GTK_THEME=Adwaita:dark nautilus
+bindsyn $mod+d exec /usr/bin/dolphin
 
 # lock screen
 bindsym $mod+shift+x exec i3lock -i /home/guido/Pictures/Wallpapers/lock.png -t -f
@@ -326,9 +327,10 @@ bindsym $mod+Shift+s mode "screenshot"
 
 mode "launcher" {
 	bindsym b exec brave-browser
-	bindsym f exec firefox -P
+	bindsym f exec firefox -p
 	bindsym q exec qutebrowser
     bindsym p exec firefox --private-window
+    bindsym d exec dolphin
 	bindsym Escape mode "default"
 }
 bindsym $mod+o mode "launcher"
@@ -345,20 +347,20 @@ bindsym $mod+i mode "firelauncher"
 # status bars
 
 # right screen
-bar {
-       output DP-5
-       status_command py3status --config ~/.config/i3/i3status/i3status_left.conf --include /home/guido/.config/i3/pystatus
-       position top
-       colors {
-             background #262626
-             focused_workspace  #928374 #262626 #d5c4a1
-             active_workspace   #424242 #262626 #d5c4a1
-             inactive_workspace #262626 #262626 #888888
-             urgent_workspace   #2f343a #900000 #ffffff
-             binding_mode       #2f343a #928374 #55ff00
-       }
-       tray_output HDMI-0
-}
+#bar {
+#       output DP-5
+#       status_command py3status --config ~/.config/i3/i3status/i3status_left.conf --include /home/guido/.config/i3/pystatus
+#       position top
+#       colors {
+#             background #262626
+#             focused_workspace  #928374 #262626 #d5c4a1
+#             active_workspace   #424242 #262626 #d5c4a1
+#             inactive_workspace #262626 #262626 #888888
+#             urgent_workspace   #2f343a #900000 #ffffff
+#             binding_mode       #2f343a #928374 #55ff00
+#       }
+#       #tray_output HDMI-0
+#}
 #bar {
 #       output DP-1
 #       status_command py3status --config ~/.config/i3/i3status/i3status_right_bottom.conf --include /home/guido/.config/i3/pystatus
@@ -374,42 +376,44 @@ bar {
 #       tray_output DVI-D-0
 #}
 
-bar {
-       output HDMI-0
-       status_command py3status --config ~/.config/i3/i3status/i3status_center.conf --include /home/guido/.config/i3/pystatus
-       position top
-       colors {
-             background #262626
-             focused_workspace  #928374 #262626 #d5c4a1
-             active_workspace   #424242 #262626 #d5c4a1
-             inactive_workspace #262626 #262626 #888888
-             urgent_workspace   #2f343a #900000 #ffffff
-             binding_mode       #2f343a #928374 #55ff00
-       }
-       tray_output HDMI-0
-}
+#bar {
+#       output HDMI-0
+#       status_command py3status --config ~/.config/i3/i3status/i3status_center.conf --include /home/guido/.config/i3/pystatus
+#       position bottom
+#       mode hide
+#       colors {
+#             background #262626
+#             focused_workspace  #928374 #262626 #d5c4a1
+#             active_workspace   #424242 #262626 #d5c4a1
+#             inactive_workspace #262626 #262626 #888888
+#             urgent_workspace   #2f343a #900000 #ffffff
+#             binding_mode       #2f343a #928374 #55ff00
+#       }
+#       #tray_output HDMI-0
+#}
 
 # left screen
-bar {
-       output DVI-D-0
-       status_command py3status --config ~/.config/i3/i3status/i3status_right.conf --include /home/guido/.config/i3/pystatus
-       position top
-       colors {
-             background #262626
-             focused_workspace  #928374 #262626 #d5c4a1
-             active_workspace   #424242 #262626 #d5c4a1
-             inactive_workspace #262626 #262626 #888888
-             urgent_workspace   #2f343a #900000 #ffffff
-             binding_mode       #2f343a #928374 #55ff00
-       }
-       tray_output HDMI-0
-}
+#bar {
+#       output DVI-D-0
+#       status_command py3status --config ~/.config/i3/i3status/i3status_right.conf --include /home/guido/.config/i3/pystatus
+#       position top
+#       colors {
+#             background #262626
+#             focused_workspace  #928374 #262626 #d5c4a1
+#             active_workspace   #424242 #262626 #d5c4a1
+#             inactive_workspace #262626 #262626 #888888
+#             urgent_workspace   #2f343a #900000 #ffffff
+#             binding_mode       #2f343a #928374 #55ff00
+#       }
+#       #tray_output HDMI-0
+#}
 
 
 # statup apps
 exec nitrogen --restore
 exec --no-startup-id /home/guido/.bin/nm-applet-reset.sh
 exec /usr/bin/pasystray
+exec --no-statups-id /home/guido/.bin/polybar-launcher
 exec --no-startup-id /usr/bin/nextcloud
 exec --no-startup-id /usr/bin/slack
 exec --no-startup-id /usr/bin/dunst
