@@ -413,7 +413,7 @@ bindsym $mod+i mode "firelauncher"
 exec nitrogen --restore
 exec --no-startup-id /home/guido/.bin/nm-applet-reset.sh
 exec /usr/bin/pasystray
-exec --no-statups-id /home/guido/.bin/polybar-launcher
+exec --no-startup-id $HOME/.bin/polybar-launcher
 exec --no-startup-id /usr/bin/nextcloud
 exec --no-startup-id /usr/bin/slack
 exec --no-startup-id /usr/bin/dunst
