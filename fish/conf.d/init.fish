@@ -61,3 +61,6 @@ set -gx PATH $PATH $HOME/.krew/bin
 
 # github
 set -x GITHUB_TOKEN f8d2a305985bbe898585c52746adead0b5ba3733
+
+# direnv
+direnv hook fish | source
